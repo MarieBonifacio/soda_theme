@@ -1,0 +1,5486 @@
+@import 'colors', 'mixin', 'fontSize', 'import';
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+html
+{
+  scroll-behavior: smooth;
+}
+body
+{  
+  height: 100vh;
+  width: 100%;
+  background-color: $color2;
+  padding: 0;
+  margin: 0;
+  font-family: "Muli", sans-serif;
+  overflow-x: hidden;
+  .wp-embedded-content{
+    width: 210px;
+  }
+  #buddypress .activity-inner a{
+      color: $police !important;
+      text-decoration: underline;
+  }
+  #buddypress .activity-inner a:hover{
+      color: $color-imp !important;
+      text-decoration: underline;
+  }
+  p
+  {
+    font-size: $fontSize2;
+    color: $police;
+    font-family: "Muli", sans-serif;
+    font-weight: 100;
+  }
+  i
+  {
+    font-size: $fontSize2;
+    color: $icons;
+  }
+  i:hover
+  {
+    color: $color-imp;
+    cursor: pointer;
+    user-select: none;
+  }
+  .mess
+  {
+    font-size: $fontSize2;
+    font-weight: 600;
+  }
+  .error
+  {
+    color: red;
+  }
+  .good
+  {
+    color: #3AD29F;
+  }
+  input[type=submit]
+  {
+    background: $color-btn;
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: none;
+    font-size: $fontSize3;
+    font-weight: 600;
+    color: $color1;
+    transition: .2s;
+  }
+  input[type=submit]:hover
+  {
+    background: $police;
+  }
+  .above
+  {
+    @include positionTL(fixed, 0, 0);
+    z-index: 10;
+    width: 100%;
+    height: 12%;
+    background: $color2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    @include flex(space-between, center, row);
+    .logo
+    {
+      position: relative;
+      width: 15%;
+      height: 100%;
+      z-index: 3;
+      @include flex(center, center, row);
+      img
+      {
+        position: relative;
+        width: 70%;
+        height: auto;
+        z-index: 4;
+      }
+    }
+    .search
+    {
+      position: relative;
+      width:85%;
+      height: 100%;
+      @include flex(flex-end, center, row);
+      i
+      {
+        font-size: $fontSize3;
+      }
+      .arrow
+      {
+        @include positionTL(absolute, "", 0);
+        font-size: $fontSize3;
+        color: $icons;
+        z-index: 2;
+      }
+      .arrow:hover
+      {
+        color: $color-imp;
+        cursor: pointer;
+      }
+      .icons
+      {
+        position: relative;
+        width: 10%;
+        height: 100%;
+        font-size: $fontSize3;
+        color: $icons;
+        margin-right: 10px;
+        transition: .3s;
+        @include flex(space-around, center, row);
+        i
+        {
+          position: relative;
+          z-index: 5;
+        }
+        .fa-bell
+        {
+          @include positionTR(absolute, "", 10px);
+        }
+        .searchContainer
+        {
+          position: relative;
+          width: 0%;
+          height: 100%;
+          color: $icons;
+          font-size: $fontSize3;
+          transition: .3s;
+          @include flex(center, center, row);
+          .searchBar
+          {
+            position: relative;
+            height: 50%;
+            width: 0%;
+            opacity: 0;
+            border: none;
+            background: none;
+            border-bottom: 1px solid $police;
+            transition: .3s;
+            margin-left: 10px;
+          }
+          //class which grows searchbar
+          .growUp
+          {
+            width: 80%;
+            opacity: 1;
+          }
+        }
+        // class which grows container of searchbar
+        .opacitySearch
+        {
+          width: 100%;
+          opacity: 1;
+        }
+        .notifs
+        {
+          @include positionTR(absolute, 100%, 0px);
+          display: none;
+          font-size: $fontSize2;
+          background: $color1;
+          border-radius: 5px;
+          min-width: 250px;
+          max-width: 250px;
+          max-height: 300px;
+          overflow-y: scroll;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+          padding: 10px;
+          color: $police;
+          font-family: "Muli", sans-serif;
+          z-index: 11;
+          span
+          {
+            font-weight: 600;
+            color: $color-imp;
+          }
+          p{
+            a:hover
+            {
+              span
+              {
+                color: #ff5e00;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        .notifs:hover
+        {
+          cursor: default;
+        }
+        .nbr_notifs
+        {
+          @include positionBR(absolute, -3px, -3px);
+          transform: translate(50%, 50%);
+          font-weight: 600;
+          font-size: $fontSize2;
+          color: $color-imp;
+          z-index: 25;
+          font-family: "Muli", sans-serif;
+        }
+        .notifsAppear
+        {
+          display: block;
+        }
+        .notifs::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        .notifs::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        .notifs::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        .notifs::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        .notifs::-webkit-scrollbar-track {
+          background: $color1;
+          border-radius: 50px;
+        }
+        .notifs::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+
+      }
+        // class which grows the container of bell icon and search icon/bar
+      .iconsGrow
+      {
+          width: 90%;
+      }
+      .profile_pic
+      {
+        height: 100%;
+        @include flex(center, center, row);
+        .circle{
+          position: relative;
+          width: 50px;
+          height: 50px;
+          margin-right: 10px; 
+          @include flex(center, center, row);
+          img
+          {
+            position: relative;
+            border-radius: 50%;
+            min-width: 100%;
+            min-height: 100%;
+          }
+        }
+        .circle:hover{
+          cursor: pointer;
+        }
+        .dropMenuProfile
+        {
+        display: none;
+          @include positionTR(absolute, 100%, 0px);
+          background: $color1;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+          a
+          {
+            margin: 5px;
+            text-align:center;
+            color: $police;
+            font-weight: 600; 
+            font-size:12px;
+            font-family: "Montserrat";
+          }
+          a:hover
+          {
+            color: $color-imp;
+          }
+        }
+      }
+      .settings
+      {
+        display: none;
+      }
+    }
+  }
+  .dropMenuProfileAppear
+  {
+    display: flex!important;
+    @include flex(center, center, column);
+  }
+  .side
+  {
+    @include positionTL(fixed, 12%, 0);
+    width: 5%;
+    height: 88%;
+    z-index: 5;
+    background: $color1;
+    transition: .2s;
+    z-index: 10;
+    @include flex(flex-start, center, column);
+    .rank,
+    .home
+    {
+      @include flex(flex-start, center, row);
+      a
+      {
+        margin-left: 5%;
+      }
+    }
+    div
+    {
+      position: relative;
+      @include flex(space-around, center, row);
+      margin-bottom: 15px;
+      width: 100%;
+      height: 5%;
+      .dropMenu
+      {
+        display: none;
+        width: 150px;
+        padding: 5px;
+        background: $color3;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        position: absolute;
+        top: -10%;
+        right: 10%;
+        border-radius: 5px;
+        transform: translate(100%);
+        list-style: none;
+        font-family: "Montserrat";
+        transition: .2s;
+        z-index: 3;
+        li
+        {
+          margin: 5px;
+          a
+          {
+            color: $police;
+          }
+          a:hover
+          {
+            color: $color-imp
+          }
+        }
+      }
+      .fa-home
+      {
+        color: $icon-home;
+      }
+      .fa-sort-down
+      {
+        width: 30%;
+        height: 10%;
+        margin-right: 10px;
+        text-align: center;
+        transform: rotate(-90deg);
+      }
+      #a
+      {
+        position: relative;
+        width: 50%;
+        transition: .2s;
+        @include flex(space-around, center, row);
+        p
+        {
+          display: none;
+          margin-right: 10%;
+          width: 50%;
+          color: $police;
+          font-size: $fontSize2;
+          font-family: "Montserrat";
+        }
+        p:hover
+        {
+          color: $color-imp;
+        }
+      }
+    }
+    // class to make icons name appear
+    .para
+    {
+      display: block !important;
+    }
+    .dropMenuAppear
+    {
+      display: block !important;
+    }
+    .home
+    {
+      margin-top: 15px;
+    }
+    .fa-question
+    {
+      @include positionTR(absolute, "", 10px);
+      bottom: 10px;
+      font-size: $fontSize3;
+    }
+    .left
+    {
+      @include flex(flex-start, center, row);
+      a
+      {
+        margin-left: 5%;
+      }
+    }
+  }
+  // class to shrink the side nav
+  .shrink
+  {
+    width: 15%;
+  }
+  .big
+  {
+    width: 95% !important;
+  }
+  .sideNavLeft
+  {
+    left: 0;
+  }
+  .loader
+  {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: $color2;
+    z-index: 55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+    transition: .5s;
+
+    .bubble
+    {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: $color3;
+      border-radius: 50%;
+      box-shadow: inset 0 0 50px #000;
+      overflow: hidden;
+      p
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        padding: 0;
+        z-index: 12;
+        color: white;
+        transform: translate(-50%, -50%);
+        font-size: 34px;
+        font-weight: 200;
+        font-family: sans-serif;
+        font-family: "Comfortaa";
+        span
+        {
+          width: 100px;
+          font-size: 15px;
+          position: absolute;
+          bottom: -20%;
+          left: 15%;
+          font-family: "Pacifico";
+        }
+      }
+    }
+
+    .wave1
+    {
+      position: absolute;
+      bottom: -70%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      border-radius: 40%;
+      background: #111;
+      transform: translate(-50%, -50%);
+      opacity: .6;
+      animation: liquid1 2s linear alternate infinite;
+      /* transition: .2s; */
+    }
+
+    .wave2
+    {
+      position: absolute;
+      bottom: -70%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      border-radius: 40%;
+      background: #111;
+      transform: translate(-50%, -50%);
+      opacity: .3;
+      animation: liquid2 2s linear alternate infinite;
+      /* transition: .2s; */
+    }
+
+    @keyframes liquid1
+    {
+      0%
+      {
+        /* top: 40%; */
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100%
+      {
+        /* top: -90%; */
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes liquid2
+    {
+      0%
+      {
+        /* top: 40%; */
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+      100%
+      {
+        /* top: -90%; */
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+    }
+
+  }
+  .loaderFinished
+  {
+    opacity: 0;
+  }
+  .content
+  {
+    position: absolute;
+    width: 85%;
+    height: 88%;
+    transition: .3s;
+    right: 0;
+    bottom: 0;
+    @include flex( space-between, center, row);
+    .h2
+    {
+      transform: translate(-50%, -50%);
+      color: $police;
+      z-index: 4;
+      font-size: $fontSize3;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      @include positionTL(absolute, 5%, 50%);
+    }
+    h3
+    {
+      color: $police;
+      font-family: "Montserrat";
+    }
+    .stats_camp
+    {
+      position: relative;
+      width: 100%;
+      // height: 100%;
+      font-size: $fontSize2;
+      color: $police;
+      font-family: "Muli";
+      @include flex(center, center, column);
+      @include positionTL(absolute, 20%, 0);
+      span
+      {
+        font-weight: bold;
+        color: $color-imp;
+      }
+      p
+      {
+        text-align: center;
+      }
+      .select, .selectC
+      {
+        position: relative;
+        z-index: 3;
+        user-select: none;
+        margin: 5px;
+        span
+        {
+          padding: 5px 10px;
+          font-weight: bold; 
+          color: $police;
+          transition: .2s;
+          border-radius: 3px;
+          font-weight: bold;
+          background: $color1;
+        }
+        span:hover
+        {
+          cursor: pointer;
+          color: $color-imp;
+        }
+        ul
+        {
+          @include positionTR(absolute, 100%, 0);
+          max-height: 150px;
+          margin: 0;
+          background: $color1;
+          overflow-y: scroll;
+          list-style: none;
+          border-radius: 3px;
+          padding: 5px 10px;
+          li
+          {
+            margin: 5px;
+            font-weight: lighter;
+            transition: .2s;
+            margin: 5;
+            text-align: center;
+          }
+          li:hover
+          {
+            cursor: pointer;
+            color: $color-imp;
+          }
+        }
+        ul::-webkit-scrollbar {
+          width: 2px;
+        }
+        ul::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        ul::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-track {
+          background: $color1;
+          border-radius: 50px;
+        }
+        ul::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      .select
+      {
+        z-index: 4;
+      }
+      .container
+      {
+        position: relative;
+        width: 100%;
+        @include flex(space-around, center, row);
+      }
+      .tableContainer
+      {
+        position: relative;
+        width: 45%;
+        @include flex(space-around, flex-start, column);
+        div
+        {
+          position: relative;
+          width: 100%;
+          max-height: 500px;
+          overflow-y: scroll;
+          padding: 5px;
+          margin-bottom: 10px;
+          @include flex("", center, column);
+          h3
+          {
+            margin: 0;
+          }
+          .part, .moyQ
+          {
+            margin-right:5px;
+          }
+          table
+          {
+            position: relative;
+            width: 100%;
+            padding: 5px;
+            th, td
+            {
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            tr
+            {
+              td:nth-child(1)
+              {
+                text-align: left;
+              }
+              text-align: center;
+            }
+            tr:nth-child(even) 
+            {
+              background-color: $color1;
+            }
+          }
+          .totalTable
+          {
+            tr
+            {
+              td:nth-child(1)
+              {
+                text-align: center;
+              }
+            }
+          }
+          .red
+          {
+            color: red;
+            font-weight: bold;
+          }
+          .green
+          {
+            color: #3AD29F;
+            font-weight: bold;
+          }
+          .orange
+          {
+            color: $color-imp;
+            font-weight: bold;
+          }
+        }
+        div::-webkit-scrollbar {
+          width: 2px;
+        }
+        div::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        div::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        div::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        div::-webkit-scrollbar-track {
+          background: $color1;
+          border-radius: 50px;
+        }
+        div::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      .hidden
+      {
+        display: none;
+      }
+    }
+    .new_camp
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      @include flex(center, center, row);
+      font-family: "Muli";
+      font-size: $fontSize2;
+      form, .modifyDiv
+      {
+        height: 400px;
+        position: relative;
+        padding: 15px;
+        background: $color1;
+        border-radius: 5px;
+        color: $police;
+        @include flex(space-around, center, column);
+        div
+        {
+          position: relative;
+          margin-bottom: 15px;
+          width: 100%;
+          @include flex(space-between, center, row);
+          label
+          {
+            width: 50%;
+            font-weight: bold;
+          }
+          input[type="text"]
+          {
+            width: 50%;
+            background: $color1;
+            border: none;
+            border-bottom: 1px solid $police;
+            color: $police;
+          }
+          input[type="date"]
+          {
+            width: 50%;
+            background: $color-btn;
+            border: none;
+            color: $color1;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+          }
+        }
+        input[type="submit"]
+        {
+          font-size: $fontSize2;
+        }
+      }
+      .modifyDiv
+      {
+        position: absolute;
+        background: $color3;
+        z-index: 5;
+        transform: translate(-50%, -50%);
+        @include positionTL(fixed, 50%, 50%);
+        div
+        {
+          input[type="text"]
+          {
+            background: $color3;
+          }
+        }
+        .confirmMod
+        {
+          background: $color-btn;
+          border: none;
+          padding: 5px 10px;
+          color: $color1;
+          font-weight: bold;
+          transition: .2s;
+          border-radius: 3px;
+          outline: none;
+        }
+        .confirmMod:hover
+        {
+          background: $police;
+        }
+        i
+        {
+          @include positionTR(absolute, 5px, 5px);
+        }
+      }
+      .listCamp
+      {
+        height: 400px;
+        width: 300px;
+        position: relative;
+        padding: 15px;
+        background: $color1;
+        border-radius: 5px;
+        margin-left: 15px;
+        @include flex(space-around, center, column);
+        ul
+        {
+          position: relative;
+          margin: 0;
+          padding: 5px;
+          height: 70%;
+          width: 100%;
+          overflow-y: scroll;
+          li
+          {
+            background: $color3;
+            padding: 5px;
+            border-radius: 3px;
+            color: $police;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            span
+            {
+              color: $color-imp;
+            }
+            button
+            {
+              background: $color-btn;
+              color: $color1;
+              font-weight: bold;
+              border: none;
+              border-radius: 3px;
+              margin:5px;
+              padding: 5px 10px;
+              transition: .2s;
+              outline: none;
+            }
+            button:nth-child(2)
+            {
+              background: red;
+            }
+            button:hover{
+              background: $police;
+            }
+          }
+        }
+        ul::-webkit-scrollbar {
+          width: 2px;
+        }
+        ul::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        ul::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-track {
+          background: $color2;
+          border-radius: 50px;
+        }
+        ul::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      .confirm
+      { 
+        width: 300px;
+        padding: 15px;
+        z-index: 3;
+        font-size: $fontSize2;
+        color: $police;
+        background: $color3;
+        border-radius: 3px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        @include positionTL(fixed, 50%, 50%);
+        p
+        {
+          margin: 0;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+        div
+        {
+          position: relative;
+          width: 100%;
+          @include flex(space-around, center, "");
+          .yes
+          {
+            color: #3AD29F;
+          }
+          .no
+          {
+            color: red;
+          }
+          .yes:hover, .no:hover
+          {
+            cursor: pointer;
+            font-weight: bold;
+          }
+        }
+      }
+      .hidden
+      {
+        display: none;
+      }
+    }
+    .stats
+    {
+      z-index: 9;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-family: "Muli";
+      @include flex("", center, column);
+      .mailSend
+      {
+        @include positionTR(absolute, 5px, 5px);
+        background: $color-imp;
+        color: $color1;
+        transition: .2s;
+        padding: 5px;
+        margin: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 3px;
+      }
+      .mailSend:hover
+      {
+        cursor: pointer;
+        background: $police;
+      }
+      .confirmMess
+      {
+        width: 300px;
+        @include positionTL(fixed, 50%, 50%);
+        transform: translate(-50%, -50%);
+        background: $color1;
+        color: $police;
+        padding: 10px;
+        text-align: center;
+        z-index: 15;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        .yesNo
+        {
+          display: flex;
+          justify-content: space-around;
+          font-size: $fontSize2;
+          a
+          {
+            color: #3AD29F;
+          }
+          p
+          {
+            color: red;
+            margin: 0;
+          }
+          a:hover, p:hover
+          {
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+      }
+      .notifyConfirm
+      {
+        padding: 15px;
+        background: $color1;
+        color: $police;
+        border-radius: 3px;
+        font-size: $fontSize2;
+        z-index: 20;
+        transform: translate(50%, -50%);
+        @include positionTR(fixed, 50%, 50%);
+        i
+        {
+          @include positionTR(absolute, 5px, 5px);
+        }
+      }
+      .users
+      {
+        @include positionTL(absolute, 0, 0);
+        @include flex(center, center, column);
+        width: 100%;
+        height: 100%;
+        background: $color2;
+        z-index: 11;
+        p
+        {
+          text-align: center;
+          font-weight: bold;
+        }
+        .imp
+        {
+          color: $color-imp;
+        }
+        .select
+        {
+          transform: translate(-50%, -50%);
+          @include positionTL(absolute, 10%, 50%);
+          color: $police;
+          font-size: $fontSize2;
+          z-index: 4;
+          user-select: none;
+          label
+          {
+            font-family: "Muli";
+            font-weight: bold;
+            span
+            {
+              background: $color1;
+              transition: .2s;
+              padding: 5px 10px;
+              border-radius: 3px;
+              font-weight: lighter;
+            }
+            span:hover
+            {
+              color: $color-imp;
+              cursor: pointer;
+            }
+          }
+          ul
+          {
+            width: 100%;
+            height: 150px;
+            overflow-y: scroll;
+            margin: 0;
+            padding: 5px;
+            border-radius: 3px;
+            background: $color1;
+            @include positionTR(absolute, 100%, 0);
+            li
+            {
+              text-align: center;
+            }
+            li:hover
+            {
+              cursor: pointer;
+              color: $color-imp;
+            }
+          }
+          ul::-webkit-scrollbar {
+            width: 2px;
+            height: 3px;
+          }
+          ul::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          ul::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-track {
+            background: $color1;
+            border-radius: 50px;
+          }
+          ul::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+        }
+        .nbrUsers
+        {
+          background: $color1;
+          padding: 5px 10px;
+          font-weight: bold;
+          border-radius: 3px;
+          color: $police;
+          font-size: $fontSize2;
+          @include positionBL(absolute, 5px, 5px);
+        }
+        .table
+        {
+          position: relative;
+          width: 50%;
+          height: 60%;
+          overflow-y: scroll;
+          z-index: 2;
+          padding: 10px;
+          @include flex(center, "", "");
+          table
+          {
+            position: relative;
+            color: $police;
+            font-size: $fontSize2;
+            width: 80%;
+            thead
+            {
+              position: relative;
+              width: 100%;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+              :nth-child(1)
+              {
+                border-left: none;
+              }
+              :nth-child(2)
+              {
+                width: 50%;
+              }
+              th
+              {
+                padding: 10px;
+                border-left: 1px solid rgba(255, 255, 255, 0.5);
+              }
+            }
+            tr
+            {
+              text-align: center;
+              :nth-child(1)
+              {
+                border-left: none;
+              }
+              td
+              {
+                padding: 10px;
+                word-break: break-word;
+                border-left: 1px solid rgba(255, 255, 255, 0.5);
+                border-top: 1px solid rgba(255, 255, 255, 0.5);
+              }
+            }
+          }
+        }
+        .table::-webkit-scrollbar {
+          width: 2px;
+          height: 5px;
+        }
+        .table::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        .table::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        .table::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        .table::-webkit-scrollbar-track {
+          background: $color1;
+          border-radius: 50px;
+        }
+        .table::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+        i
+        {
+          font-size: $fontSize3;
+          @include positionTR(absolute, 5px, 5px)
+        }
+      }
+      button
+      {
+        width: 70px;
+        background: $color-btn;
+        border: none;
+        color: $color1;
+        font-weight: 600;
+        transition: .2s;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 3px;
+        outline: none;
+        font-size: 14px;
+      }
+      button:hover
+      {
+        background: $police;
+      }
+      .extract
+      {
+        width : 150px;
+        @include positionTL(absolute, 5px, 5px);
+      }
+      .hidden
+      {
+        display: none !important;
+      }
+      .activated
+      {
+        background: $police;
+      }
+      .btns
+      {
+        width: 100%;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+        @include positionTL(absolute, 15%, 50%);
+        @include flex(space-evenly, center, "");
+        label
+        {
+          color: $police;
+          font-family: "Muli";
+          font-weight: bold;
+          font-size: $fontSize2;
+        }
+        .listDiv
+        {
+          position: relative;
+          color: $police;
+          @include flex(center, center, "");
+          .labelSite
+          {
+            transition: .2s;
+            background: $color1;
+            border-radius: 3px;
+            font-weight: lighter;
+            padding: 5px 10px;
+          }
+          .labelSite:hover
+          {
+            cursor: pointer;
+            color: $color-imp;
+          }
+          ul
+          {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: $color1;
+            border-radius: 3px;
+            height: 150px;
+            overflow-y: scroll;
+            @include positionTR(absolute, 20px, 0);
+            @include flex("", center, column);
+            li
+            {
+              text-align: center;
+              margin: 5px;
+              transition: .2s;
+              font-size: $fontSize2;
+            }
+            li:hover
+            {
+              cursor: pointer;
+              color: $color-imp;
+            }
+          }
+          ul::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          ul::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          ul::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-track {
+            background: $color1;
+            border-radius: 50px;
+          }
+          ul::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+        }
+      }
+      canvas
+      {
+        margin-top: 12%;
+        margin-bottom: 15px;
+        z-index: 3;
+        position : relative;
+        width: 82vw !important;
+        height: 41vw !important;
+      }
+      canvas::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      canvas::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      canvas::-webkit-scrollbar-thumb:hover {
+        background: $color-btn;
+      }
+      canvas::-webkit-scrollbar-thumb:active {
+        background: $color-btn;
+      }
+      canvas::-webkit-scrollbar-track {
+        background: $color2;
+        border-radius: 50px;
+      }
+      canvas::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+    .add_tag
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      font-size: $fontSize2;
+      @include flex(space-evenly, center, "");
+      h3
+      {
+        font-family: "Montserrat";
+        text-align: center;
+      }
+      .contentTag
+      {
+        background: rgba(36, 51, 76, 0.5);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        padding: 15px;
+        border-radius: 5px;
+        color: $police;
+        @include flex(space-evenly, center, "");
+      }
+      .listTag
+      {
+        height: 300px;
+        background: rgba(19, 26, 40, 0.9);
+        padding: 15px;
+        border-radius: 5px;
+        margin-right: 15px;
+        ul
+        {
+          height: 200px;
+          color: $police;
+          list-style: none;
+          margin: 0;
+          padding:0px 5px;
+          overflow-y: scroll;
+          @include flex("", center, column);
+          li
+          {
+            position: relative;
+            margin: 5px;
+            width: 150px;
+            padding: 10px 5px;
+            text-align: center;
+            background: $color-imp;
+            color: $color1;
+            font-weight: 600;
+            border-radius: 3px;
+            word-break: break-word;
+            .deleteBtn
+            {
+              width: 10px;
+              @include positionTR(absolute, 0px, 5px);
+              i
+              {
+                color: rgb(235, 13, 13);
+              }
+            }
+            .deleteBtn:hover
+            {
+              i
+              {
+                color: rgb(136, 13, 13);
+              }
+            }
+            .confirm
+            {
+              @include positionTR(fixed, 50%, 50%);
+              transform: translate(50%, -50%);
+              background: $color3;
+              padding: 5px 10px;
+              border-radius: 5px;
+              color:$police;
+              // box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+              z-index: 45;
+              a, span
+              {
+                font-weight: 100;
+                margin: 5px;
+                color: rgb(235, 13, 13);
+              }
+              span
+              {
+                color: #3AD29F;
+              }
+              span:hover, a:hover
+              {
+                cursor: pointer;
+                font-weight: 600;
+              }
+            }
+            .hidden
+            {
+              display:none;
+            }
+          }
+        }
+        ul::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        ul::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        ul::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        ul::-webkit-scrollbar-track {
+          background: $color2;
+          border-radius: 50px;
+        }
+        ul::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      form
+      {
+        height: 300px;
+        color: $police;
+        background: rgba(19, 26, 40, 0.9);
+        padding: 15px;
+        border-radius: 5px;
+        @include flex(space-evenly, center, column);
+        div
+        {
+          position: relative;
+          input
+          {
+            width: 150px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid $police;
+            outline: none;
+            color: $police;
+            text-align: center;
+            margin-bottom: 35px;
+          }
+          input:focus
+          {
+            text-align: center;
+            color: $police;
+          }
+          input:not(:focus)
+          {
+            text-align: center;
+            color: $police;
+          }
+        }
+        input[type="submit"]
+        {
+          font-size: $fontSize2;
+        }
+      }
+    }
+    .svg_tag
+    {
+      z-index: 1;
+      width: 50%;
+      height: 100%;
+      @include positionTR(absolute, 0px, 0px);
+      svg
+      {
+        width: 100%;
+        height: auto;
+        @include positionBR(absolute, 10px, 10px);
+        #tag
+        {
+          animation: filltag 1.5s infinite linear alternate-reverse;
+        }
+        @keyframes filltag
+        {
+          0%{
+            fill: white;
+          }
+          100%{
+            fill: #EBB94A;
+          }
+        }
+        #plant1, #plant2, #plant3, #plant4, #plant5{
+          animation: tagPlant infinite linear alternate-reverse;
+        }
+        #plant1, #plant2, #plant3
+        {
+          transform-origin: 37% 93%;
+        }
+        #plant1{
+          animation-duration: 1s;
+        } 
+        #plant2{
+          animation-duration: 1.7s;
+        } 
+        #plant3{
+          animation-duration: 1.2s;
+        }
+        #plant5
+        {
+          transform-origin: 10% 90%;
+          animation-duration: 1.3s;
+        } 
+        #plant4
+        {
+          transform-origin: 50% 90%;
+          animation-duration: 1.6s;
+        }
+        @keyframes tagPlant
+        {
+          0%{
+            transform: rotate(-1deg);
+          }
+          25%{
+            transform: rotate(-0.5deg);
+          }
+          50%{
+            transform: rotate(0deg);
+          } 
+          75%{
+            transform: rotate(0.5deg);
+          }
+          100%{
+            transform: rotate(1deg);
+          }
+        }
+      }
+    }
+    .home
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: $fontSize2;
+      font-family: "Muli";
+      color: $police;
+      padding: 25px;
+      .dashboard
+      {
+        position: relative;
+        display: grid;
+        width: 100%;
+        height: 100%;
+        @include gridRepeat(1fr, 7, 1fr ,5, 25px);
+        .actu
+        {
+          grid-column: 1/3;
+          grid-row: 1/6;
+          #buddypress
+          {
+            overflow-y: scroll;
+            padding: 10px;
+            width: 100%;
+            .activity-shortcode-title
+            {
+              display: none;
+            }
+            img
+            {
+              border-radius: 50%;
+            }
+            .pagination
+            {
+              display: none;
+            }
+            .bpas-post-form-wrapper
+            {
+              border: none;
+              background: $color2;
+              border-radius: 5px;
+              padding: 15px;
+              transition: .2s;
+              margin-bottom: 15px;
+              form
+              {
+                height: 100%;
+              }
+              .activity-greeting
+              {
+                height: 15px;
+                line-height: 1.5 !important;
+                color: $color-imp;
+              }
+              #whats-new-content
+              {
+                width: 80%;
+                padding: 20px !important;
+                #whats-new-textarea
+                {
+                  textarea
+                  {
+                    min-width: 100% !important;
+                    min-height: 50px;
+                    max-width: 100% !important;
+                    background: $color3 !important;
+                    border: none;
+                    border-radius: 5px;
+                    outline: none;
+                    color: $police;
+                  }
+                }
+              }
+              #whats-new-submit
+              {
+                margin-bottom: 10px;
+                input
+                {
+                  background: $color-btn;
+                  border:none;
+                  color: $color1;
+                  border-radius: 3px;
+                }
+                input:hover
+                {
+                  background: $police;
+                }
+              }
+            }
+            .activity-header
+            {
+              p
+              {
+                line-height: 1.5;
+              }
+              a
+              {
+                color: $color-imp;
+              }
+            }
+            .activity-meta
+            {
+              margin-top: 10px;
+              padding: 5px;
+              border-top: 1px solid $police;
+              width: 150px;
+              a
+              {
+                margin-top: 10px !important;
+                background:none;
+                border: none;
+                color: $police;
+                span
+                {
+                  background: $color-imp;
+                  color: $color1;
+                }
+              }
+              .delete-activity
+              {
+                color: rgb(235, 13, 13);
+              }
+              .fav
+              {
+                color: #3AD29F;
+              }
+              .unfav
+              {
+                color: rgb(235, 13, 13);
+              }
+              a:hover
+              {
+                font-weight: 600;
+              }
+            }
+            .activity-list, .activity
+            {
+              margin-top: 10px;
+              border:none;
+            }
+            li.activity
+            {
+              margin-top: 10px;
+              margin-bottom: 10px;
+              background: $color2;
+              padding: 15px;
+              border-radius: 5px;
+            }
+            .pag-count
+            {
+              color: $police;
+            }
+            .ac-reply-content
+            {
+              margin: -10px;
+              padding: 0;
+              .ac-textarea
+              {
+                background: none;
+                border: none;
+                textarea
+                {
+                  margin-top: 10px;
+                  min-height: 50px;
+                  width: 100%;
+                  min-width: 100%;
+                  max-width: 100%;
+                  padding: 5px;
+                  background: $color1;
+                  border-radius: 5px;
+                  color: $police;
+                }
+              }
+              input[type="submit"]
+              {
+                background: $color-btn;
+                color: $color1;
+                border:none;
+                outline: none;
+                font-weight: 600;
+                transition: .2s;
+              }
+              input[type="submit"]:hover
+              {
+                background: $police;
+              }
+              .ac-reply-cancel
+              {
+                color: rgb(235, 13, 13);
+              }
+              .ac-reply-cancel:hover
+              {
+                font-weight: 600;
+              }
+            }
+            .activity-comments
+            {
+              margin: 0;
+              padding: 10px;
+              border-radius: 5px;
+              ul
+              {
+                padding: 0;
+                li
+                {
+                  color: $police;
+                  padding:10px;
+                  margin-bottom: 10px;
+                  background: $color3;
+                  border-radius: 5px;
+                  border: none;
+                  ul
+                  {
+                    margin: 0;
+                    li
+                    {
+                      background: $color2;
+                    }
+                  }
+                } 
+              }
+              a
+              {
+                color: $color-imp;
+              }
+              a:hover
+              {
+                font-weight: 600;
+              }
+              .acomment-reply
+              {
+                color: #3AD29F;
+              }
+              .delete
+              {
+                color: rgb(235, 13, 13);
+              }
+
+              .acomment-meta
+              {
+                color: $police;
+              }
+              .acomment-options
+              {
+                margin: 0;
+              }
+            }
+          }
+          #buddypress::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          #buddypress::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          #buddypress::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          #buddypress::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          #buddypress::-webkit-scrollbar-track {
+            background: $color2;
+            border-radius: 50px;
+          }
+          #buddypress::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+        }
+        .quiz
+        {
+          grid-column: 6/8;
+          grid-row: 4/6;
+          .contentQ
+          {
+            position:relative;
+            width: 50%;
+            height: 70%;
+            margin-bottom: 5px;
+            a
+            {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              color: $color-imp;
+              border-radius: 5px;
+              overflow: hidden;
+              @include flex(center, center, column);
+              img
+              {
+                position: relative;
+                // min-height: 100%;
+                min-width: 100%;
+              }
+              .filter
+              {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                z-index: 1;
+                background: rgba(0,0,0, 0.6);
+                transition: .2s;
+              }
+              p,h2
+              {
+                font-size: $fontSize2;
+                position: absolute;
+                z-index: 2;
+              }
+              p
+              {
+                font-weight: 600;
+                color: $police;
+                bottom: 0;
+              }
+              h2
+              {
+                text-align: center;
+                top: 0;
+              }
+            }
+          }
+          .contentQ:hover
+          {
+            .filter
+            {
+              background: rgba(0,0,0, 0.4);
+            }
+          }
+        }
+        .news
+        {
+          grid-column: 3/6;
+          grid-row: 1/3;
+          h3
+          {
+            height: 10%;
+          }
+          .display-posts-listing.grid {
+              display: grid;
+              grid-gap: 16px;
+              height: 70%;
+              width: 90%;
+              .listing-item
+              {
+                position: relative;
+                background: $color3;
+                border-radius: 5px;
+                overflow: hidden;
+                img
+                {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  z-index:1;
+                }
+                .image::before
+                {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 120%;
+                  height: 100%;
+                  background: rgba(0,0,0,0.5);
+                  z-index:2;
+                }
+                .title
+                {
+                  position: absolute;
+                  z-index: 3;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  font-weight: 600;
+                  color: $police;
+                  width: 100%;
+                  height: 110%;
+                  background: rgba(0,0,0,0.6);
+                  text-align: center;
+                  transition: .2s;
+                  @include flex(center, center, "");
+                }
+              }
+              .listing-item:hover
+              {
+                .title
+                {
+                  color: $color-btn;
+                  background: rgba(0,0,0,0.4);
+                }
+              }
+          }
+          
+          .display-posts-listing.grid .title {
+              display: block;
+              color: $police;
+              text-align:center;
+          }
+          
+          .display-posts-listing.grid img { 
+              display: block; 
+              max-width: 100%; 
+              height: auto; 
+          }
+          
+          @media (min-width: 600px) 
+          {
+            .display-posts-listing.grid {
+                grid-template-columns: repeat( 1, 1fr );
+            }
+          }
+          
+          @media (min-width: 1100px) 
+          {
+            .display-posts-listing.grid {
+                grid-template-columns: repeat( 3, 1fr );
+            }
+          }
+        }
+        .results
+        {
+          grid-column: 3/6;
+          grid-row: 3/6;
+          .chartDiv
+          {
+            position: relative;
+            width: 85%;
+            height: 70%;
+            #myChart
+            {
+              position: relative;
+              width: 100% !important;
+              height: 100% !important;
+              color:rgba(226, 179, 74, 0.5);
+            }
+          }
+        }
+        .leaderboard
+        {
+          grid-column: 6/8;
+          grid-row: 1/4;
+          @include flex(flex-start, center, column);
+          .btns
+          {
+            margin-bottom: 10px;
+            button
+            {
+              background: $color-btn;
+              border: none;
+              border-radius: 3px;
+              padding: 3px 6px;
+              color: $color1;
+              font-weight: 600;
+              transition: .2s;
+              font-size: 12px;
+              outline: none;
+            }
+            button:hover
+            {
+              background: $police;
+            }
+          }
+          .leadboard
+          {
+            border-collapse: collapse;
+            font-size: 13px;
+            overflow-y: scroll;
+            width: 98%;
+            height: 70%;
+            padding: 10px;
+            table
+            {
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              thead
+              {
+                position: relative;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                :nth-child(1)
+                {
+                  border-left: none;
+                }
+                :nth-child(2)
+                {
+                  width: 35%;
+                }
+                :nth-child(3)
+                {
+                  width: 35%;
+                }
+                th
+                {
+                  border-left: 1px solid rgba(255, 255, 255, 0.5);
+                }
+              }
+              tr
+              {
+                text-align: center;
+                :nth-child(1)
+                {
+                  border-left: none;
+                }
+                td
+                {
+                  word-break: break-word;
+                  border-left: 1px solid rgba(255, 255, 255, 0.5);
+                  border-top: 1px solid rgba(255, 255, 255, 0.5);
+                }
+              }
+              .imp
+              {
+                font-weight: 600;
+                color: $color-imp;
+              }
+              .gold
+              {
+                font-weight: 600;
+                color: #FFD700;
+              }
+              .silver
+              {
+                font-weight: 600;
+                color: #C0C0C0;
+              }
+              .bronze
+              {
+                font-weight: 600;
+                color: #CD7F32;
+              }
+            }
+          }
+          .activated
+          {
+            background: $police !important;
+          }
+          .leadboard::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          .leadboard::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          .leadboard::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          .leadboard::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          .leadboard::-webkit-scrollbar-track {
+            background: $color2;
+            border-radius: 50px;
+          }
+          .leadboard::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+
+        }
+        .window
+        {
+          position: relative;
+          background: $color3;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+          @include flex(space-evenly, center, column);
+          h3
+          {
+            text-align: center;
+            z-index: 2;
+            margin: 5px;
+          }
+        }
+      }
+    }
+    .profile
+    {
+      position: relative;
+      width: 45%;
+      height: 100%;
+      font-size: $fontSize2;
+      font-family: "Muli";
+      @include flex(space-evenly, center, column);
+      #profil
+      {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: $police;
+        font-weight: 600;
+        @include flex(space-around, center, column);
+        .picture
+        {
+          position: relative;
+          font-weight: 200;
+          width: 170px;
+          height: 170px;
+          @include flex(center, center, row);
+          i
+          {
+            @include positionBR(absolute, 0, 0);
+          }
+          span
+          {
+            width: 150%;
+            text-align: left;
+            @include positionBR(absolute, -5px, -260px);
+            color: $color-imp;
+            font-weight: 600;
+          }
+          .img
+          {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: $color3;
+            @include flex(center, center, row);
+            img
+            {
+              position: relative;
+              min-width:100%;
+              min-height: 100%;
+            }
+          }
+        }
+        div
+        {
+          width: 60%;
+          label
+          {
+            font-family: "Montserrat";
+          }
+          @include flex(space-between, center, row);
+          .field
+          {
+            width: 62%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid $police;
+            color: $color-imp;
+            text-align: center;
+          }
+          input:focus
+          {
+            color: $color-imp;
+            outline: none;
+            text-align: center;
+          }
+          input:not(:focus)
+          {
+            text-align: center;
+            color: $color-imp;
+          }
+          button
+          {
+            background: none;
+            border: none;
+          }
+        }
+        .select
+        {
+          position: relative;
+          width: auto;
+          select
+          {
+            border-radius: 3px;
+            appearance: none;
+            outline: none;
+            font-weight: 600;
+          }
+          i
+          {
+              @include positionTR(absolute, 0, 5px);
+              color: #192231;
+              font-size: $fontSize3;
+          }
+          select:hover
+          {
+            cursor: pointer;
+          }
+        }
+        select
+        {
+          background: $color-btn;
+          color: $color1;
+          border: none;
+          border-radius: 5px;
+          padding: 5px 15px;
+          font-size: $fontSize2;
+          font-weight: 600;
+          transition: .2s;
+        }
+        select:hover
+        {
+          cursor: pointer;
+          background: $police;
+        }
+      }
+    }
+    .svg
+    {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      @include flex(center, center, row);
+      .svg_profile
+      {
+        position: relative;
+        margin-top: 50px;
+        width: 90%;
+        height: auto;
+        #arm-l
+        {
+          path
+          {
+            transform-origin: 15%;
+            animation: arml 0.8s infinite alternate;
+          }
+        }
+        @keyframes arml 
+        {
+          0%{
+            transform: translateX(-12px);
+            transform: rotateZ(0.1deg);
+          }
+          100%{
+            transform: translateX(-12px);
+            transform: rotateZ(0.7deg);
+          }
+        }
+        #arm-r
+        {
+            transform-origin: 0%;
+            animation: armr 0.8s infinite alternate;
+        }
+        @keyframes armr 
+        {
+          0%{
+            transform: translate(0px, 6px);
+          }
+          100%{
+            transform: translate(6px, 6px);
+          }
+        }
+        #apple
+        {
+          position: relative;
+          transform-origin: 20% 95%;
+          animation: 3s squeeze infinite alternate;
+        }
+        @keyframes squeeze 
+        {
+          0%{
+            transform: rotate(0deg);
+          }
+          20%{
+            transform: rotate(0deg);
+          }
+          21%{
+            transform: rotate(2deg);
+          }
+          25%{
+            transform: rotate(-2deg);
+          }
+          29%{
+            transform: rotate(2deg);
+          }
+          33%{
+            transform: rotate(-2deg);
+          }
+          37%{
+            transform: rotate(0deg);
+          }
+          100%{
+            transform: rotate(0deg);
+          }
+        }
+        #apple_2
+        {
+          transform-origin: bottom;
+          animation: 3s newton infinite alternate;
+        }
+        @keyframes newton 
+        {
+          0%{
+            transform: translateY(0px);
+          }
+          83%{
+            transform: translateY(0px);
+          }
+          88%{
+            transform: translateY(-15px);
+          }
+          93%{
+            transform: translateY(0px);
+          }
+          100%{
+            transform: translateY(0px);
+          }
+        }
+        #Vector_106
+        {
+          transform-origin: 12.85% 19.92%;
+        }
+        #Vector_107
+        {
+          transform-origin: 12.85% 19.92%;
+        }
+        #Vector_112
+        {
+          animation: 4s light infinite alternate;
+        }
+        @keyframes light
+        {
+          0%{
+            fill: #E0E0E0;
+          }
+          20%{
+            fill: #E0E0E0;
+          }
+          30%{
+            fill: #7ab9c9;
+          }
+          40%{
+            fill: #E0E0E0;
+          }
+          60%{
+            fill: #E0E0E0;
+          }
+          70%{
+            fill: #7ab9c9;
+          }
+          80%{
+            fill: #E0E0E0;
+          }
+          100%{
+            fill: #E0E0E0;
+          }
+        }
+      }
+    }
+    .steps
+    {
+      position: relative;
+      width: 50%;
+      height: 20%;
+      @include flex(space-between, center, row);
+      .step
+      {
+        background: $color3;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        @include flex(center, center, row);
+        font-size: $fontSize3;
+        font-family: "Muli";
+        color: $police;
+        z-index: 2;
+      }
+      .stepInto
+      {
+        background: $color-imp;
+      }
+      .stick
+      {
+        @include positionTL(absolute, 50%, 50%);
+        transform: translate(-50%);
+        width: 90%;
+        height: 2%;
+        background: $color3;
+        z-index: 1;
+      }
+    }
+    .createQuizModule
+    {
+      width: 100%;
+      height: 100%;
+      font-family: "Muli";
+      z-index: 2;
+      @include flex(center, center, column);
+      @include positionBR(absolute, 0, 0);
+      h3
+      {
+        font-size: $fontSize2;
+        font-weight: 200;
+        color: $police;
+      }
+      form
+      {
+        position: relative;
+        width: 55%;
+        height: 40%;
+        color: $police;
+        font-size: $fontSize2;
+        font-family: "Muli";
+        font-weight: 600;
+        @include flex(space-between, center, "");
+        .moduleThemeLabel
+        {
+          width: 75%;
+        }
+        .textarea
+        {
+          position: relative;
+          width: 40%;
+          textarea
+          {
+            background: $color1;
+            border: none;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 150px;
+            min-height: 150px;
+            border-radius: 3px;
+            color: $police;
+            outline: none;
+          }
+        }
+        .content
+        {
+          position: relative;
+          width: 50%;
+          @include flex(space-around, center, column);
+          div
+          {
+            position: relative;
+            width: 100%;
+            @include flex(space-around, center, row);
+            label
+            {
+              position: relative;
+              width: 50%;
+              text-align: start;
+            }
+            input
+            {
+              position: relative;
+              width: 62%;
+              background: none;
+              border: none;
+              border-bottom: 1px solid $police;
+            }
+            input:focus
+            {
+              color: $police;
+              outline: none;
+              text-align: center;
+            }
+            input:not(:focus)
+            {
+              color: $police;
+              outline: none;
+              text-align: center;
+            }
+            select
+            {
+              position: relative;
+              width: 62%;
+              background: $color-btn;
+              color: $color1;
+              appearance: none;
+              padding: 5px 15px;
+              border: none;
+              border-radius: 3px;
+              outline: none;
+              transition: .2s;
+              font-size: $fontSize1;
+              text-transform: uppercase;
+              font-weight: 600;
+            }
+            select:hover
+            {
+              background: $police;
+              cursor: pointer;
+            }
+            i
+            {
+              color: $color1;
+              font-size: $fontSize2;
+              margin-bottom: 5px;
+              @include positionTR(absolute, 0px, 5px);
+            }
+            button
+            {
+              width: 200px;
+              background: none;
+              border: none;
+              padding: 0;
+              p
+              {
+                position: relative;
+                padding: 5px 10px;
+                width: 100%;
+                background: $color-btn;
+                border: none;
+                border-radius: 3px;
+                color: $color1;
+                outline: none;
+                transition: .2s;
+                font-size:$fontSize1;
+                font-weight: 600;
+                text-transform: uppercase;
+              }
+              p:hover
+              {
+                background: $police;
+                cursor: pointer;
+              }
+            }
+            span
+            {
+              font-size: 12px;
+              @include positionBR(absolute, -10px, 5px);
+            }
+          }
+        }
+        input[type=submit]
+        {
+          @include positionBR(absolute, -50px, 50%);
+          transform: translate(50%,);
+        }
+      }
+    }
+    .step2
+    {
+      font-family: "Muli";
+      font-size: $fontSize2;
+      color: $police;
+      z-index: 2;
+      width: 100%;
+      @include flex(space-around, center, column);
+      @include positionTL(absolute, 10%, 0);
+      img
+      {
+        max-width: 30%;
+      }
+      .plus
+      {
+        margin-bottom: 10px;
+        font-size: $fontSize3;
+      }
+      h3
+      {
+        font-size: $fontSize2;
+        font-weight: 200;
+        font-family: "Montserrat";
+      }
+      .trash
+      {
+        @include positionTR(absolute, 15px, 15px);
+      }
+      .total
+      {
+        margin: 0;
+        font-weight: 600;
+        @include positionTR(fixed, 20%, 25px);
+      }
+      form
+      {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 60%;
+        @include flex(space-around, center, column);
+        .hidden
+        {
+          display: none !important;
+        }
+        .questionPage
+        {
+          position: relative;
+          width: 80%;
+          background: rgba(36, 51, 76, 0.5);
+          border-radius: 5px;
+          padding: 10px 10px;
+          font-size: $fontSize2;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          @include flex(flex-start, flex-start, column);
+          div
+          {
+            width: 100%;
+            margin-bottom: 10px;
+            margin-top: 5px;
+            input
+            {
+              width: 70%;
+              background: none;
+              border:none;
+              border-bottom: 1px solid $police;
+            }
+            textarea
+            {
+              width: 100%;
+              max-width: 100%;
+              min-width: 100%;
+              min-height: 150px;
+              outline: none;
+              background: $color1;
+              color: $police;
+              border: none;
+              border-radius: 5px;
+              padding: 10px;
+            }
+            label
+            {
+              font-weight: 600;
+              color: $color-imp;
+            }
+            input:focus
+            {
+              color: $color-imp;
+            }
+            input:not(:focus)
+            {
+              color: $color-imp;
+            }
+          }
+          .answers
+          {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            @include flex(center, flex-start, column);
+            .abcd
+            {
+              position: relative;
+              display: flex;
+              flex-wrap: wrap;
+              width: 100%;
+              label
+              {
+                color: $police;
+              }
+              .answer
+              {
+                width: 50%;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                @include flex(space-evenly, center, row);
+                input
+                {
+                  outline: none;
+                  width: 60%;
+                }
+                input[type=radio]
+                {
+                  position: absolute;
+                  opacity: 0;
+                  width: 10%;
+                  height: 0;
+                }
+                .true:hover input ~ span i
+                {
+                  color: #3AD29F;
+                }
+                .true input:checked ~ span i
+                {
+                  color: #3AD29F;
+                }
+                .false:hover input ~ span i
+                {
+                  color: red;
+                }
+                .false input:checked ~ span i
+                {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+        .media
+        {
+          @include flex(space-around, center, row);
+          div
+          {
+            position: relative;
+            width: 45%;
+            @include flex(space-between, center, row);
+            button
+            {
+              width: 70%;
+              background: none;
+              border: none;
+              p
+              {
+                position: relative;
+                padding: 5px 10px;
+                width: 100%;
+                background: $color-btn;
+                border: none;
+                border-radius: 3px;
+                color: $color1;
+                outline: none;
+                transition: .2s;
+                font-size:$fontSize1;
+                font-weight: 600;
+                text-transform: uppercase;
+              }
+              p:hover
+              {
+                background: $police;
+                cursor: pointer;
+              }
+            }
+            span
+            {
+              font-size: $fontSize1;
+              @include positionBR(absolute, -10px, 0px);
+            }
+            label
+            {
+              color: $police;
+            }
+          }
+          div:nth-child(3)
+          {
+            @include flex(space-around, center, row);
+            input
+            {
+              width: 70%;
+            }
+          }
+        }
+      }
+      .validate, .sketching
+      {
+        padding: 5px 10px;
+        background: $color-btn;
+        border-radius: 3px;
+        color: $color1;
+        font-weight: 600;
+        transition: .2s;
+      }
+      .validate:hover, .sketching:hover
+      {
+        background: $police;
+        cursor: pointer;
+      }
+    }
+    .step3
+    {
+      font-family: "Muli";
+      font-size: $fontSize2;
+      color: $police;
+      z-index: 5;
+      width: 100%;
+      @include flex(space-around, center, column);
+      @include positionTL(absolute, 10%, 0);
+      .img
+      {
+        position: relative;
+        max-width: 30%;
+      }
+      h3
+      {
+        font-weight: 200;
+      }
+      a
+      {
+        padding: 5px 10px;
+        background: $color-btn;
+        color: $color1;
+        margin-bottom: 35px;
+        border-radius: 3px;
+        transition: .2s;
+        font-size: $fontSize2;
+        font-weight: 600;
+      }
+      a:hover
+      {
+        background: $police;
+      }
+      .recap
+      {
+        margin-top: 40px;
+        width: 80%;
+        @include flex(center, center, column);
+        .questions
+        {
+          position: relative;
+          width: 70%;
+          background: rgba(36, 52, 77, 0.7);
+          border-radius: 5px;
+          padding: 15px;
+          margin-bottom: 45px;
+          @include flex(space-around, center, column);
+          .introP
+          {
+            padding: 15px;
+          }
+          .numQ
+          {
+            font-size: $fontSize3;
+            font-weight: 600;
+            color: $color-imp;
+            @include positionTL(absolute, 10px, 10px);
+          }
+          .medias
+          {
+            width: 35%;
+            margin-top: 5px;
+            img
+            {
+              width: 100%;
+              height: auto;
+            }
+          }
+          iframe
+          {
+            width: 90%;
+          }
+          .question
+          {
+            width: 100%;
+            font-weight: 600;
+            @include flex(center, center, row);
+            p
+            {
+              margin-top: 30px;
+              margin-bottom: 30px;
+              width: 100%;
+              font-weight: 600;
+              text-align: center;
+              padding: 0 20px 0 20px;
+              word-wrap: break-word;
+            }
+          }
+          .answers
+          {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            div
+            {
+              position: relative;
+              width: 100%;
+              @include flex(center, center, row);
+              .spanP
+              {
+                position: relative;
+                width: 92%;
+                @include flex(flex-start, center, row);
+                span
+                {
+                  margin-right: 15px;
+                  margin-left: 2px;
+                  font-weight: 600;
+                }
+                p
+                {
+                  width: 80%;
+                  word-wrap: break-word;
+                }
+              }
+              div
+              {
+                position: relative;
+                width: 8%;
+                @include flex(space-evenly, center, row);
+              }
+            }
+          }
+        }
+        .pages
+        {
+          position: relative;
+          width: 800px;
+          height: 500px;
+          background: $color3;
+          border-radius: 5px;
+          padding: 5px 10px;
+          margin-bottom: 45px;
+          overflow-y: hidden;
+          @include flex(space-evenly, center, row);
+          .introP
+          {
+            padding: 55px;
+          }
+          span
+          {
+            font-size: $fontSize3;
+            font-weight: 600;
+            color: $color-imp;
+            @include positionTL(absolute, 10px, 10px);
+          }
+          .medias
+          {
+            position: relative;
+            width: 40%;
+            height: 100%;
+            @include flex(space-around, center, row);
+            img
+            {
+              position: relative;
+              width:auto;
+              max-height: 80%;
+            }
+          }
+          .full
+          { 
+            width: 100%;
+          }
+          .content
+          {
+            position: relative;
+            width: 50%;
+            height: 90%;
+            @include flex(flex-start, center, column);
+            overflow-y: scroll;
+            p
+            {
+              padding: 30px;
+            }
+          }
+          .contentFull
+          {
+            width: 100%;
+          }
+          .content::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          .content::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          .content::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          .content::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          .content::-webkit-scrollbar-track {
+            background: $color2;
+            border-radius: 50px;
+          }
+          .content::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+        }
+      }
+    }
+    .svg_step1
+    {
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+      @include positionTR(absolute, 0, 0);
+      @include flex(center, center, row);
+      svg
+      {
+        width: 70%;
+        @include positionBR(absolute, 15px, 15px);
+        #foot
+        {
+          transform-origin: 20% 50%;
+          animation: 2.5s foot infinite ease-in alternate;
+        }
+        @keyframes foot 
+        {
+          0%{
+            transform: rotate(0deg);
+          }
+          12.5%{
+            transform: rotate(5deg);
+          }
+          25%{
+            transform: rotate(10deg);
+          }
+          37.5%{
+            transform: rotate(5deg);
+          }
+          50%{
+            transform: rotate(0deg);
+          }
+          62.5%{
+            transform: rotate(-5deg);
+          }
+          75%{
+            transform: rotate(-10deg);
+          }
+          87.5%{
+            transform: rotate(-5deg);
+          }
+          100%{
+            transform: rotate(0deg);
+          }
+        }
+        #r_hand
+        {
+          transform-origin: 55% 75%;
+          animation: 2s rhand infinite ease-in alternate;
+        }
+        @keyframes rhand
+        {
+          0%{
+            transform: rotate(0deg);
+          }
+          12.5%{
+            transform: rotate(4deg);
+          }
+          25%{
+            transform: rotate(6deg);
+          }
+          37.5%{
+            transform: rotate(4deg);
+          }
+          50%{
+            transform: rotate(0deg);
+          }
+          62.5%{
+            transform: rotate(-4deg);
+          }
+          75%{
+            transform: rotate(-6deg);
+          }
+          87.5%{
+            transform: rotate(-4deg);
+          }
+          100%{
+            transform: rotate(0deg);
+          }
+        }
+        #l_hand
+        {
+          transform-origin: 45% 75%;
+          animation: 2s lhand infinite ease-in alternate;
+        }
+        @keyframes lhand
+        {
+          0%{
+            transform: rotate(0deg);
+          }
+          12.5%{
+            transform: rotate(5deg);
+          }
+          25%{
+            transform: rotate(10deg);
+          }
+          37.5%{
+            transform: rotate(5deg);
+          }
+          50%{
+            transform: rotate(0deg);
+          }
+          62.5%{
+            transform: rotate(5deg);
+          }
+          75%{
+            transform: rotate(10deg);
+          }
+          87.5%{
+            transform: rotate(5deg);
+          }
+          100%{
+            transform: rotate(0deg);
+          }
+        }
+      }
+    }
+    .svg_step2_quiz
+    {
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+      @include positionBR(fixed, 0, 0);
+      @include flex(center, center, row);
+      svg
+      {
+        @include positionBR(absolute, 15px, 15px);
+        width: 60%;
+        #leaf1
+        {
+          animation: leaf 2.5s infinite linear alternate-reverse;
+          transform-origin: 30% 75%;
+        }
+        #leaf2
+        {
+          animation: leaf 3.5s infinite linear alternate-reverse;
+          transform-origin: 30% 72%;
+        }
+        #leaf3
+        {
+          animation: leaf 3s infinite linear alternate-reverse;
+          transform-origin: 90% 70%;
+        }
+        @keyframes leaf
+        {
+          0%{
+            transform: translateY(-40px) rotate(-5deg)
+          }
+          10%{
+            transform: translateY(-36px) rotate(0deg)
+          }
+          20%{
+            transform: translateY(-32px) rotate(5deg)
+          }
+          30%{
+            transform: translateY(-28px) rotate(10deg)
+          }
+          40%{
+            transform: translateY(-24px) rotate(5deg)
+          }
+          50%{
+            transform: translateY(-20px) rotate(0deg)
+          }
+          60%{
+            transform: translateY(-16px) rotate(-5deg)
+          }
+          70%{
+            transform: translateY(-12px) rotate(-10deg)
+          }
+          80%{
+            transform: translateY(-8px) rotate(-5deg)
+          }
+          90%{
+            transform: translateY(-4px) rotate(0deg)
+          }
+          100%{
+            transform: translateY(0px) rotate(5deg)
+          }
+        }
+      }
+    }
+    .svg_step2_module
+    {
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+      @include positionTR(fixed, 0, 0);
+      @include flex(center, center, row);
+      svg
+      {
+        @include positionBR(absolute, 15px, 15px);
+        width: 60%;
+        #leaf1
+        {
+          animation: leaf 3.5s infinite linear alternate-reverse;
+          transform-origin: 30% 0%;
+        }
+        #leaf2
+        {
+          animation: leaf 2.5s infinite linear alternate-reverse;
+          transform-origin: 55% 80%;
+        }
+        @keyframes leaf
+        {
+          0%{
+            transform: translateY(-40px) rotate(-5deg)
+          }
+          10%{
+            transform: translateY(-36px) rotate(0deg)
+          }
+          20%{
+            transform: translateY(-32px) rotate(5deg)
+          }
+          30%{
+            transform: translateY(-28px) rotate(10deg)
+          }
+          40%{
+            transform: translateY(-24px) rotate(5deg)
+          }
+          50%{
+            transform: translateY(-20px) rotate(0deg)
+          }
+          60%{
+            transform: translateY(-16px) rotate(-5deg)
+          }
+          70%{
+            transform: translateY(-12px) rotate(-10deg)
+          }
+          80%{
+            transform: translateY(-8px) rotate(-5deg)
+          }
+          90%{
+            transform: translateY(-4px) rotate(0deg)
+          }
+          100%{
+            transform: translateY(0px) rotate(5deg)
+          }
+        }
+        #plant
+        {
+          #right
+          {
+            animation: plant 2.5s infinite linear alternate-reverse;
+            transform-origin: 92% 80%;
+          }
+          #left
+          {
+            animation: plant 3s infinite linear alternate-reverse;
+            transform-origin: 92% 80%;
+          }
+        }
+        #plant2
+        {
+          animation: plant2 2.5s infinite linear alternate-reverse;
+          transform-origin: 5% 85%;
+        }
+        @keyframes plant
+        {
+          0%{
+            transform: rotate(-5deg)
+          }
+          16.7%{
+            transform: rotate(0deg)
+          }
+          33.4%{
+            transform: rotate(5deg)
+          }
+          50.1%{
+            transform: rotate(0deg)
+          }
+          66.8%{
+            transform: rotate(-5deg)
+          } 
+          83.5%{
+            transform: rotate(0deg)
+          }
+          100%{
+            transform: rotate(5deg)
+          }
+        }
+        @keyframes plant2
+        {
+          0%{
+            transform: rotate(-0.5deg)
+          }
+          16.7%{
+            transform: rotate(0deg)
+          }
+          33.4%{
+            transform: rotate(0.5deg)
+          }
+          50.1%{
+            transform: rotate(0deg)
+          }
+          66.8%{
+            transform: rotate(-0.5deg)
+          } 
+          83.5%{
+            transform: rotate(0deg)
+          }
+          100%{
+            transform: rotate(0.5deg)
+          }
+        }
+      }
+    }
+    .svg_step3
+    {
+      width: 50%;
+      height: 100%;
+      z-index: 1;
+      @include positionTR(fixed, 0, 0);
+      @include flex(center, center, row);
+      svg
+      {
+        @include positionBR(absolute, 15px, 0px);
+        width: 50%;
+        #check
+        {
+          animation: fillCheck 4s linear infinite; 
+        }
+        @keyframes fillCheck
+        {
+          0%{
+            fill: #57B894;
+          }
+          22%{
+            fill: #57B894;
+          }
+          23%{
+            fill: rgb(90, 238, 184);
+          }
+          25%{
+            fill: rgb(90, 238, 184);
+          }
+          26%{
+            fill: #57B894;
+          }
+          74%{
+            fill: #57B894;
+          }
+          75%{
+            fill: rgb(90, 238, 184);
+          }
+          77%{
+            fill: rgb(90, 238, 184);
+          }
+          78%{
+            fill: #57B894;
+          }
+          80%{
+            fill: rgb(90, 238, 184);
+          }
+          82%{
+            fill: rgb(90, 238, 184);
+          }
+          83%{
+            fill: #57B894;
+          }
+          100%{
+            fill: #57B894;
+          }
+        }
+        #tree
+        {
+          animation: rotateTree 1.5s linear infinite alternate-reverse; 
+          transform-origin: 24% 52%;
+        }
+        #plants
+        {
+          #Vector_24, #Vector_25, #Vector_26, #Vector_27
+          {
+            transform-origin: 10% 54%;
+          }
+          #Vector_24
+          {
+            animation: rotatePlant 2s linear infinite alternate-reverse; 
+          }
+          #Vector_25
+          {
+            animation: rotatePlant 2.5s linear infinite alternate-reverse; 
+          }
+          #Vector_26
+          {
+            animation: rotatePlant 1.5s linear infinite alternate-reverse;
+          }
+          #Vector_27
+          {
+            animation: rotatePlant 3s linear infinite alternate-reverse; 
+          }
+        }
+        @keyframes rotateTree
+        {
+          0%{
+            transform: rotate(-0.3deg)
+          }
+          16.7%{
+            transform: rotate(0deg)
+          }
+          33.4%{
+            transform: rotate(0.3deg)
+          }
+          50.1%{
+            transform: rotate(0deg)
+          }
+          66.8%{
+            transform: rotate(-0.3deg)
+          } 
+          83.5%{
+            transform: rotate(0deg)
+          }
+          100%{
+            transform: rotate(0.3deg)
+          }
+        }
+        @keyframes rotatePlant
+        {
+          0%{
+            transform: rotate(-1.5deg)
+          }
+          16.7%{
+            transform: rotate(0deg)
+          }
+          33.4%{
+            transform: rotate(1.5deg)
+          }
+          50.1%{
+            transform: rotate(0deg)
+          }
+          66.8%{
+            transform: rotate(-1.5deg)
+          } 
+          83.5%{
+            transform: rotate(0deg)
+          }
+          100%{
+            transform: rotate(1.5deg)
+          }
+        }
+      }
+    }
+    .quizModules
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      @include flex(center, center, "");
+      
+      /* ---- button ---- */
+      .button-group
+      {
+        width: 90%;
+        border-radius: 100px;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        @include positionTL(absolute, 20%, 50%);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        button 
+        {
+          background-color: $color-btn;
+          border: none;
+          border-radius: 3px;
+          color: $color1;
+          font-weight: 600;
+          text-transform: capitalize;
+          padding: 5px 10px;
+          outline: none;
+          margin: 5px;
+          font-size: $fontSize2;
+        }
+        
+        .button:hover 
+        {
+          background-color: $police;        
+        }
+        
+        .button:active,
+        .button.is-checked 
+        {
+          background-color: $police;
+        }
+      }
+      /* ---- ancre ---- */
+      
+      .ancreTop, .ancreDown
+      {
+        z-index: 24;
+        i
+        {
+          color: $police;
+          font-size:25px;
+          transition:.2s;
+        }
+        i:hover
+        {
+          color: $color-imp;
+        }
+      }
+      .ancreTop
+      {
+        z-index: 25;
+        @include positionBR(fixed, 20px, 10px);
+      }
+      .ancreDown
+      {
+        @include positionBR(fixed, 10px, 10px);
+      }
+
+      #end
+      {
+        @include positionBL(absolute, 0, 0);
+      }
+      /* ---- isotope ---- */
+      
+      .grid {
+        position: absolute !important;
+        top: 25%;
+        .element-item {
+          position: relative;
+          width: 250px;
+          height: 250px;
+          margin: 50px 50px;
+          padding: 10px;
+          border-radius: 5px;
+          background: $color3;
+          color: $police;
+          font-weight: 600;
+          font-size: $fontSize2;
+          overflow: hidden;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+          @include flex(space-between, center, column);
+          h3
+          {
+            position: relative;
+            z-index: 2;
+          }
+          .tag
+          {
+            z-index: 2;
+            @include positionTL(absolute, 5px, 5px);
+          }
+          .mod
+          {
+            z-index: 2;
+            @include positionBL(absolute, 26%, 5px);
+            @include flex(space-between, center, "");
+            .spanQuiz
+            {
+              margin-left: 5px;
+              a
+              {
+                color: $color-imp;
+                transition: .2s;
+              }
+              a:hover
+              {
+                color: rgb(211, 198, 169);
+              }
+            }
+            .btnlist
+            {
+              background: none;
+              padding: 0;
+              margin: 0;
+              margin-left: 5px;
+              color: $color-imp;
+            }
+            .btnlist:hover
+            {
+              color: rgb(211, 198, 169);
+            }
+            .list
+            {
+              width: 100px;
+              height: 0px;
+              margin: 0;
+              padding: 0;
+              background: $color1;
+              overflow-y:scroll;
+              border-radius: 3px;
+              transition: .2s;
+              @include flex("", "", column);
+              @include positionBR(absolute, 0%, -102px);
+              li
+              {
+                position: relative;
+                list-style: none;
+                margin: 5px;
+                @include flex(center, "", "");
+                a
+                {
+                  color: $color-imp;
+                  transition: .2s;
+                }
+                a:hover
+                {
+                  color: rgb(211, 198, 169);
+                }
+              }
+            }
+            .list::-webkit-scrollbar {
+              width: 2px;
+              height: 2px;
+            }
+            .list::-webkit-scrollbar-thumb {
+              background: $color-btn;
+              border-radius: 100px;
+            }
+            .list::-webkit-scrollbar-thumb:hover {
+              background: $color-btn;
+            }
+            .list::-webkit-scrollbar-thumb:active {
+              background: $color-btn;
+            }
+            .list::-webkit-scrollbar-track {
+              background: $color2;
+              border-radius: 50px;
+            }
+            .list::-webkit-scrollbar-corner {
+              background: transparent;
+            }
+            .listAppear
+            {
+              height: 120px;
+            }
+          }
+          .score
+          {
+            z-index: 2;
+            @include positionTR(absolute, 5px, 5px);
+          }
+          .imgQ
+          {
+            width: 100%;
+            height: 75%;
+            @include flex(center, center, column);
+            @include positionTL(absolute,0,0);
+            overflow: hidden;
+            img
+            {
+              position: relative;
+              max-width: 130%;
+              height: auto;
+              object-position: center;
+            }
+            .filter
+            {
+              width: 100%;
+              height: 100%;
+              @include positionTL(absolute, 0, 0);
+              background: rgba(0,0,0, 0.8);
+            }
+          }
+          p
+          {
+            position: relative;
+            background: $color-btn;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: .2s;
+            color: $color1;
+            font-weight: 600;
+            margin-bottom: 7px;
+          }
+          p:hover
+          {
+            background: $police;
+            cursor: pointer;
+          }
+        }
+      }      
+    }
+    .generator
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      color: $police;
+      font-size: $fontSize2;
+      font-family: "Muli";
+      padding-left: 50px;
+      padding-right: 50px;
+      z-index: 2;
+      @include flex(center, flex-start, "");
+      #container
+      {
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 7%;
+      }
+      #intro
+      {
+        font-size: $fontSize3;
+        font-weight: 600;
+      }
+      #step1
+      {
+        span
+        {
+          color: $color-imp;
+          font-weight: 600;
+        }
+      }
+      form
+      {
+        margin: 15px;
+        input
+        {
+          width: 500px;
+          margin-bottom: 10px;
+          background: $color3;
+          color: $police;
+          border: none;
+          padding: 10px;
+          border-radius: 3px;
+        }
+        ::placeholder
+        {
+          color: $police;
+        }
+        button
+        {
+          background: $color-btn;
+          border: none;
+          border-radius: 3px;
+          padding: 5px 10px;
+          outline: none;
+          transition: .2s;
+          color: $color1;
+          font-weight: 600;
+          font-size: $fontSize2;
+        }
+        button:hover
+        {
+          background: $police;
+        }
+        button:disabled
+        {
+          background: rgba(226, 179, 74, 0.3);
+        }
+        button:disabled:hover
+        {
+          background: rgba(226, 179, 74, 0.3);
+        }
+      }
+      .error
+      {
+        color: red;
+        font-weight: 600;
+      }
+      .window
+      {
+        font-weight: 600;
+        color: $color-imp;
+      }
+      .phrase
+      {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+    }
+    .svg_pass
+    {
+      @include positionBR(absolute, 15px, 15px);
+      width: 40%;
+      height: auto;
+      z-index: 1;
+      #tree
+      {
+        transform-origin: 15% 80%;
+        transform: rotate(0deg) translateX(1.5%);
+        animation: tree 0.9s infinite;
+      }
+      #tree_2
+      {
+        transform-origin: 85% 80%;
+        transform: rotate(0deg);
+        animation: tree 1.2s infinite;
+      }
+      #tree_3
+      {
+        transform-origin: 50% 75%;
+        transform: rotate(0deg);
+        animation: tree 1.5s infinite;
+      }
+      @keyframes tree {
+        0%{
+          transform: rotate(0deg);
+        }
+        25%{
+          transform: rotate(0.2deg);
+        }
+        50%{
+          transform: rotate(0deg);
+        }
+        75%{
+          transform: rotate(-0.2deg);
+        }
+        100%{
+          transform: rotate(0deg);
+        }
+      }
+      #leaf1, #leaf2, #leaf3, #leaf4
+      {
+        transform-origin: 65% 79%;
+        transform: rotate(0deg);
+        animation: leaves infinite;
+      }
+      #leaf1
+      {
+        animation-duration: 1.2s;
+      }
+      #leaf2
+      {
+        animation-duration: 1s;
+      }
+      #leaf3
+      {
+        animation-duration: 0.6s
+      }
+      #leaf4
+      {
+        animation-duration: 0.8s
+      }
+      @keyframes leaves {
+        0%{
+          transform: rotate(0deg);
+        }
+        25%{
+          transform: rotate(0.5deg);
+        }
+        50%{
+          transform: rotate(0deg);
+        }
+        75%{
+          transform: rotate(-0.5deg);
+        }
+        100%{
+          transform: rotate(0deg);
+        }
+      }
+      // #star_1
+      // {
+      //   animation: star1 5s infinite alternate;
+      // }
+      // #star_2
+      // {
+      //   animation: star2 5s infinite alternate;
+      // } #star_3
+      // {
+      //   animation: star3 5s infinite alternate;
+      // } #star_4
+      // {
+      //   animation: star4 5s infinite alternate;
+      // } #star_5
+      // {
+      //   animation: star5 5s infinite alternate;
+      // }
+      // @keyframes star1 {
+      //   0%{
+      //     fill: #3AD29F;
+      //   }
+      //   100%{
+      //     fill: #3AD29F;
+      //   }
+      // }
+      // @keyframes star2 {
+      //   20%{
+      //     fill: $police;
+      //   }
+      //   21%{
+      //     fill: #3AD29F;
+      //   }
+      //   100%{
+      //     fill: #3AD29F;
+      //   }
+      // }
+      // @keyframes star3 {
+      //   40%{
+      //     fill: $police;
+      //   }
+      //   41%{
+      //     fill: #3AD29F;
+      //   }
+      //   100%{
+      //     fill: #3AD29F;
+      //   }
+      // }
+      // @keyframes star4 {
+      //   60%{
+      //     fill: $police;
+      //   }
+      //   61%{
+      //     fill: #3AD29F;
+      //   }
+      //   100%{
+      //     fill: #3AD29F;
+      //   }
+      // }
+      // @keyframes star5 {
+      //   80%{
+      //     fill: $police;
+      //   }
+      //   81%{
+      //     fill: #3AD29F;
+      //   }
+      //   100%{
+      //     fill: #3AD29F;
+      //   }
+      // }
+    }
+    .board
+    {
+      width: 100%;
+      height: 100%;
+      font-size: $fontSize2;
+      color: $police;
+      .legend
+      {
+        width: 100px;
+        border-radius: 5px;
+        padding: 10px;
+        background: $color1;
+        font-size: 13px;
+        overflow: hidden;
+        z-index: 9;
+        @include positionTL(absolute, 10px, 10px);
+        @include flex(space-around, center, column);
+        p
+        {
+          width: 100%;
+          position: relative;
+          text-align: left;
+          padding: 0;
+          margin: 0;
+          font-weight: 600;
+          i
+          {
+            @include positionTR(absolute, 50%, 5px);
+            padding-bottom: 5px;
+            transform: translateY(-50%);
+          }
+        }
+        .square_legend
+        {
+          @include flex(space-around, center, column);
+          .you, .gold, .silver, .bronze
+          {
+            width: 80px;
+            margin: 5px;
+            @include flex(space-between, center, "");
+            div
+            {
+              border-radius: 2px;
+              width: 30px;
+              height: 15px;
+            }
+          }
+          .you
+          {
+            div
+            {
+              background: $color-imp;
+            }
+          }
+          .gold
+          {
+            div
+            {
+              background: #FFD700;
+            }
+          }
+          .silver
+          {
+            div
+            {
+              background: #C0C0C0;
+            }
+          }
+          .bronze
+          {
+            div
+            {
+              background: #CD7F32;
+            }
+          }
+        }
+      }
+      .dropLegend
+      {
+        display: none !important;  
+      }
+      .spans
+      {
+        padding: 5px;
+        border-radius: 5px;
+        background: $color1;
+        @include positionTR(absolute, 10px, 10px);
+        @include flex(center, center, column);
+        .span_under, .span_above 
+        {
+          color: #3AD29F;
+          font-weight: 600;
+        }
+        .span_under
+        {
+          color: rgb(235, 13, 13);
+        }
+      }
+      .btns
+      {
+        width: 100%;
+        z-index: 5;
+        transform: translate(-50%, -50%);
+        @include positionTL(absolute, 15%, 50%);
+        @include flex(space-evenly, center, "");
+        button
+        {
+          background: $color-btn;
+          border: none;
+          padding: 6px 12px;
+          border-radius: 3px;
+          color: $color1;
+          font-weight: 600;
+          transition: .2s;
+          outline: none;
+        }
+        div
+        {
+          margin: 10px;
+        }
+        label
+        {
+          font-weight: bold;
+          font-family: "Muli";
+          margin-right: 5px;
+        }
+        .select
+        {
+          position: relative;
+          z-index: 2;
+          justify-content: space-between;
+          .labelSpan
+          {
+            margin: 0;
+            display:flex;
+            .labelList
+            {
+              display: flex; 
+              align-items: center;
+            }
+            .selected
+            {
+              display:flex;
+              // min-width: 100px;
+              border-radius: 5px;
+              text-align: center;
+              padding: 5px 10px;
+              margin: 0;
+              background: $color1;
+            }
+            .selected:hover
+            {
+              cursor: pointer;
+              color: $color-imp;
+            }
+          }
+          ul
+          {
+            background: $color3;
+            border-radius: 3px;
+            padding: 5px;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+            min-height: 100px;
+            max-height: 200px;
+            min-width: 100px;
+            overflow: hidden;
+            overflow-y : scroll;
+            li
+            {
+              margin-bottom: 10px;
+            }
+          }
+          ul::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+          }
+          ul::-webkit-scrollbar-thumb {
+            background: $color-btn;
+            border-radius: 100px;
+          }
+          ul::-webkit-scrollbar-thumb:hover {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-thumb:active {
+            background: $color-btn;
+          }
+          ul::-webkit-scrollbar-track {
+            background: $color1;
+            border-radius: 50px;
+          }
+          ul::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+          li:hover
+          {
+            cursor: pointer;
+            color: $color-imp;
+          }
+        }
+        .none
+        {
+          display: none !important;
+        }
+        button:hover
+        {
+          background: $police;
+        }
+      }
+      .leadboard
+      {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 80%;
+        border-collapse: collapse;
+        overflow-y: scroll;
+        padding: 10px;
+        table
+        {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          thead
+          {
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            :nth-child(1)
+            {
+              width: 5%;
+              border-left: none;
+            }
+            th
+            {
+              width: 15%;
+              border-left: 1px solid rgba(255, 255, 255, 0.5);
+            }
+          }
+          tr
+          {
+            text-align: center;
+            :nth-child(1)
+            {
+              border-left: none;
+            }
+            td
+            {
+              word-break: break-word;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              border-left: 1px solid rgba(255, 255, 255, 0.5);
+              border-top: 1px solid rgba(255, 255, 255, 0.5);
+            }
+          }
+          .imp
+          {
+            font-weight: 600;
+            color: $color-imp;
+          }
+          .green
+          {
+            color: #3AD29F;
+            font-weight: 600;
+          }
+          .red
+          {
+            color: rgb(235, 13, 13);
+            font-weight: 600;
+          }
+          .gold
+          {
+            font-weight: 600;
+            color: #FFD700;
+          }
+          .silver
+          {
+            font-weight: 600;
+            color: #C0C0C0;
+          }
+          .bronze
+          {
+            font-weight: 600;
+            color: #CD7F32;
+          }
+        }
+      }
+      .leadboard::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .leadboard::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      .leadboard::-webkit-scrollbar-thumb:hover {
+        background: $color-btn;
+      }
+      .leadboard::-webkit-scrollbar-thumb:active {
+        background: $color-btn;
+      }
+      .leadboard::-webkit-scrollbar-track {
+        background: $color2;
+        border-radius: 50px;
+      }
+      .leadboard::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+    .quizsL, .modulesL, .userL
+    {
+      width: 100%;
+      height: 100%;
+      font-size: $fontSize2;
+      color: $police;
+      @include flex(center, center, "");
+      .popup
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $color1;
+        color: $police;
+        padding: 15px;
+        border-radius: 5px;
+        @include flex(center, center, column);
+        #yes, #no
+        {
+          padding: 10px;
+        }
+        #yes
+        {
+          color: #3AD29F;
+        }
+        #no
+        {
+          color: red;
+        }
+        #yes:hover, #no:hover
+        {
+          cursor: pointer;
+          font-weight: 600;
+        }
+      }
+      .listQuiz, .listModules
+      {
+        table
+        {
+          tr
+          {
+            :nth-child(4)
+            {
+              @include flex(center, center, column);
+            }
+          }
+        }
+      }
+      .listQuiz, .listModules, .listUser
+      {
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        height: 80%;
+        border-collapse: collapse;
+        overflow-y: scroll;
+        padding: 10px;
+        table
+        {
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          p, a
+          {
+            font-family: "Muli";
+            margin: 10px;
+            width: 100px;
+            color: $color1;
+            padding: 5px 10px;
+            border-radius: 3px;
+            background: $color-imp;
+            transition: .2s;
+            font-weight: 600;
+          }
+          p
+          {
+            background: rgb(235, 13, 13);
+            color: $police;
+          }
+          p:hover, a:hover
+          {
+            cursor: pointer;
+            background: $police;
+            color: $color1
+          }
+          thead
+          {
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            :nth-child(1)
+            {
+              border-left: none;
+            }
+            :nth-child(2)
+            {
+              width: 30%;
+            }
+            :nth-child(4)
+            {
+              margin: 0;
+            }
+            th
+            {
+              border-left: 1px solid rgba(255, 255, 255, 0.5);
+            }
+          }
+          tr:nth-child(1)
+          {
+            :nth-child(4)
+            {
+              border-top: none;
+            }
+          }
+          tr
+          {
+            text-align: center;
+            :nth-child(1)
+            {
+              border-left: none;
+            }
+            td
+            {
+              word-break: break-word;
+              border-left: 1px solid rgba(255, 255, 255, 0.5);
+              border-top: 1px solid rgba(255, 255, 255, 0.5);
+            }
+          }
+        }
+      }
+      .bigger
+      {
+        width: 100%;
+        table
+        {
+          thead
+          {
+            :nth-child(1)
+            {
+              border-left: none;
+              width: 12%;
+            }
+            :nth-child(2)
+            {
+              width: 12%;
+            }
+            :nth-child(3)
+            {
+              width: 10%;
+            }
+            :nth-child(4)
+            {
+              width: 35%;
+            } 
+            :nth-child(5)
+            {
+              width: 15%;
+            } 
+          }
+          button
+          {
+            background: $color-imp;
+            border: none;
+            border-radius: 3px;
+            transition: .2s;
+            font-weight: bold;
+            color: $color1;
+            padding: 5px 10px;
+            margin: 5px;
+          }
+          button:hover
+          {
+            background: $police;
+          }
+          .red
+          {
+            background: red;
+          }
+        }
+      }
+      .listQuiz::-webkit-scrollbar, .listModules::-webkit-scrollbar, .listUser::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .listQuiz::-webkit-scrollbar-thumb, .listModules::-webkit-scrollbar-thumb, .listUser::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      .listQuiz::-webkit-scrollbar-thumb:hover, .listModules::-webkit-scrollbar-thumb:hover, .listUser::-webkit-scrollbar-thumb:hover{
+        background: $color-btn;
+      }
+      .listQuiz::-webkit-scrollbar-thumb:active, .listModules::-webkit-scrollbar-thumb:active, .listUser::-webkit-scrollbar-thumb:active{
+        background: $color-btn;
+      }
+      .listQuiz::-webkit-scrollbar-track, .listModules::-webkit-scrollbar-track, .listUser::-webkit-scrollbar-track{
+        background: $color1;
+        border-radius: 50px;
+      }
+      .listQuiz::-webkit-scrollbar-corner, .listModules::-webkit-scrollbar-corner, .listUser::-webkit-scrollbar-corner{
+        background: transparent;
+      }
+    }
+  }
+  .notifUser
+  {
+    color: red !important;
+  }
+  .quizFinished
+  {
+    @include positionTL(fixed, 50%, 50%);
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    padding: 25px 30px;
+    background: $color2;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    p
+    {
+      color: $color-imp;
+    }
+    .fa-times
+    {
+      // color: $police;
+      // font-size: $fontSize3;
+      @include positionTR(absolute, 5px, 5px);
+    }
+  }
+  .quizPlay
+  {
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    background: $color2;
+    transition: .2s;
+    font-size: $fontSize2;
+    color: $police;
+    @include positionTL(fixed, 0, 0);
+    @include flex(center, center, column);
+    .quiz
+    {
+      @include positionTL(relative, 0 ,0);
+      width: 100%;
+      height: 100%;
+      @include flex(space-between, center, column);
+      z-index: inherit;
+    }
+    .quitQuiz
+    {
+      color: $police;
+      font-size: $fontSize3;
+      z-index: inherit;
+      @include positionTL(absolute, 10px, 10px);
+    }
+    .btns
+    {
+      position: relative;
+      width: 50%;
+      margin: 4%;
+      @include flex(space-around, center, row);
+      z-index: inherit;
+      button
+      {
+        background: $color-btn;
+        border-radius: 3px;
+        border: none;
+        padding: 5px 10px;
+        color: $color1;
+        font-size: $fontSize2;
+        font-weight: 600;
+        transition: .2s;
+        outline: none;
+      }
+      button:hover
+      {
+        background: $police;
+      }
+    }
+    .progress
+    {
+      @include positionBL(absolute, 2%, 50%);
+      transform: translateX(-50%);
+      width: 70%;
+      height: 20px;
+      border-radius: 150px;
+      background: $color1;
+    }
+    .progressDone
+    {
+      @include flex(center, center, "");
+      @include positionBL(absolute, 0%, 0%);
+      background: $color-imp;
+      font-size: $fontSize2;
+      color: $color1;
+      font-weight: 600;
+      width: 0%;
+      height: 100%;
+      border-radius: 150px;
+      opacity: 0;
+      transition: .2s ease;
+    }
+    .timer
+    {
+      font-size: $fontSize3;
+      font-weight: 600;
+      @include flex(center, center, row);
+      @include positionBR(absolute, 20px, 20px);
+      z-index: inherit;
+    }
+    .slide{
+      position: absolute;
+      top: 5%;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s;
+      @include flex(center, center, column);
+      .img
+      {
+        position: relative;
+        width: 53.4vh;
+        height: 30vh;
+        @include flex(center, center, "");
+        img
+        {
+          position: relative;
+          max-width: auto;
+          max-height: 100%;
+        }
+        iframe
+        {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .span
+      {
+        font-size: $fontSize3;
+        font-weight: 600;
+        color: $color-imp;
+        @include positionTR(absolute, 10px, 10px);
+      }
+      .question
+      {
+        position: relative;
+        margin: 10px;
+        font-size: $fontSize3;
+        width: 50%;
+        word-break: break-word;
+        text-align: center;
+        padding-left: 25px;
+        font-weight: 600;
+        span
+        {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: $color-imp;
+        }
+      }
+      .answers
+      {
+        position: relative;
+        width: 50%;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background: $color3;
+        border-radius: 5px;
+        overflow-y: scroll;
+        padding: 15px;
+        label
+        {
+          position: relative;
+          width: 80%;
+          margin: 15px;
+        }
+        input
+        {
+          outline: none;
+        }
+        input[type=checkbox]
+        {
+          position: absolute;
+          opacity: 0;
+          width: 10%;
+          height: 0;
+        }
+        p
+        {
+          position: relative;
+          text-align: initial;
+          word-wrap: break-word;  
+          width: 100%;
+          padding-left: 25px;
+          color: $police;
+          margin: 0;
+          font-size: $fontSize3;
+          span
+          {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-weight: 600;
+            color: $color-imp;
+          }
+        }
+        label:hover
+        {
+          cursor: pointer;
+        }
+        label input:checked ~ p        
+        {
+          color: $color-imp;
+        }
+      }
+      .answers::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .answers::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      .answers::-webkit-scrollbar-thumb:hover {
+        background: $color-btn;
+      }
+      .answers::-webkit-scrollbar-thumb:active {
+        background: $color-btn;
+      }
+      .answers::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 50px;
+      }
+      .answers::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+    .active-slide{
+      opacity: 1;
+      z-index: 2;
+    }
+    .active-slideQuiz{
+      opacity: 1;
+      z-index: 2;
+    }
+    #results
+    {
+      width: 100%;
+      height: 100%;
+      background: $color1;
+      @include flex(flex-start, center, column);
+      @include positionTR(fixed, 0, 0);
+      z-index: 2;
+      opacity: 0;
+      .btn
+      {
+        background: $color-btn;
+        padding: 5px 10px;
+        border-radius: 150px;
+        font-weight: 600;
+        color: $color1;
+        @include positionBR(absolute, 0px, 50%);
+        transform: translate(50%);
+        transition: .2s;
+        user-select: none;
+      }
+      .btn:hover
+      {
+        background: $police;
+        cursor: pointer;
+      }
+      .fa-times
+      {
+        @include positionTR(absolute, 20px, 20px);
+        font-size: 28px;
+      }
+      .recap
+      {
+        @include flex(flex-start, center, column);
+        width: 40%;
+        overflow-y: scroll;
+        .question
+        {
+          position: relative;
+          @include flex(center, center, column);
+          width: 90%;
+          background: $color2;
+          border-radius: 5px;
+          margin-bottom: 15px;
+          padding: 15px;
+          .questionRecap
+          {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            font-weight: 600;
+            padding-right: 30px;
+            padding-left: 30px;
+            word-wrap: break-word;
+            span
+            {
+              position: absolute;
+              left: 0;
+            }
+          }
+          .answerRecap
+          {
+            position: relative;
+            @include flex(center, center, column);
+            .answerTF
+            {
+              width: 100%;
+              text-align: initial;
+              word-break: break-word;
+              padding-left: 25px;
+              span
+              {
+                position: absolute;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+      .recap::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .recap::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      .recap::-webkit-scrollbar-thumb:hover {
+        background: $color-btn;
+      }
+      .recap::-webkit-scrollbar-thumb:active {
+        background: $color-btn;
+      }
+      .recap::-webkit-scrollbar-track {
+        background: $color2;
+        border-radius: 50px;
+      }
+      .recap::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+  }
+  .intro
+  {
+    z-index: 26;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    background: $color2;
+    @include positionTL(fixed, 0, 0);
+    @include flex(center, center, column);
+    .introP
+    {
+      padding: 15px 30px;
+      text-align: center; 
+      border-radius: 3px;
+    }
+    .begin
+    {
+      border: none; 
+      outline: none; 
+      background: $color-btn;
+      border-radius: 3px;
+      padding: 5px 10px;
+      color: $color1;
+      font-family: "Muli";
+      font-size: $fontSize2;
+      font-weight: bold;
+      transition: .2s;
+    }
+    .begin:hover{
+      background: $police;
+    }
+  }
+  .modulePlay
+  {
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    background: $color2;
+    @include positionTL(fixed, 0, 0);
+    @include flex(center, center, "");
+    .endModule
+    {
+      z-index: 25;
+      @include positionTL(fixed, 10px, 10px);
+      font-size: $fontSize3;
+    }
+    .recapModule
+    {
+      width: 100%;
+      height: 100%;
+      background: $color1;
+      z-index: 60;
+      @include positionTL(fixed, 0, 0);
+      .contentRecap
+      {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include flex(center, center, column);
+        p
+        {
+          text-align: center;
+        }
+        .listQuizMod
+        {
+          width: 90%;
+          padding: 0;
+          overflow-y: scroll;
+          @include flex(center, "", "");
+          flex-wrap: wrap;
+          li
+          {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            list-style: none;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            @include flex(center, "", "");
+            .divQuiz
+            {
+              width: 100%;
+              position: relative;
+              color: $police;
+              font-size: $fontSize2; 
+              .contentQuiz
+              {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background: $color3;
+                overflow:hidden;
+                border-radius: 5px;
+                @include flex(space-between, center, column-reverse);
+                span
+                {
+                  padding: 10px 0px;
+                  font-weight: 600;
+                  transition: .2s;
+                  text-align: center;
+                }
+                .tag
+                {
+                  z-index: 3;
+                  padding: 0;
+                  @include positionTL(absolute, 5px, 5px);
+                }
+                .img
+                {
+                  position: relative;
+                  width: 100%;
+                  height: 80%;
+                  overflow:hidden;
+                  @include flex(center, center, "");
+                  img
+                  {
+                    max-width: 100%;
+                    height: auto;
+                  }
+                }
+                .img::before
+                {
+                  content: '';
+                  background: rgba(0,0,0, 0.7);
+                  width: 100%;
+                  height: 100%;
+                  z-index: 2;
+                  transition: .2s;
+                  @include positionTL(absolute, 0, 0);
+                }
+              }
+            }
+            .divQuiz:hover
+            {
+              cursor: pointer;
+              .img::before
+              {
+                background: rgba(0,0,0,0.5);
+              }
+              span
+              {
+                color: $color-imp;
+              }
+            }
+          }
+        }
+        .listQuizMod::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        .listQuizMod::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        .listQuizMod::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        .listQuizMod::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        .listQuizMod::-webkit-scrollbar-track {
+          background: $color2;
+          border-radius: 50px;
+        }
+        .listQuizMod::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      i
+      {
+        @include positionTL(fixed, 10px, 10px);
+        font-size: $fontSize3;
+        z-index: 12;
+      }
+    }
+    .btns
+    {
+      @include positionBL(absolute, 10%, 50%);
+      z-index: 53;
+      transform: translateX(-50%);
+      button
+      {
+        position: relative;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: none;
+        background: $color-btn;
+        color: $color1;
+        font-family: "Muli";
+        font-size: $fontSize2;
+        font-weight: 600;
+        transition: .2s;
+        outline: none;
+        margin: 10px;
+      }
+      button:hover
+      {
+        background: $police;
+      }
+    }
+    .module
+    {
+      position: relative;
+      width: 95%;
+      height: 95%;
+      @include flex(space-evenly, center, column);
+      .slide{
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 90%;
+        height: 90%;
+        opacity: 0;
+        transition: opacity 0.5s;
+        color: $police;
+        font-family: "Muli";
+        span
+        {
+          font-size: $fontSize3;
+          font-weight: 600;
+          color: $color-imp;
+          @include positionTR(absolute, 10px, 10px);
+        }
+        .content
+        {
+          position: absolute;
+          width: 90%;
+          height: 90%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include flex(space-evenly, center, row);
+          .medias
+          {
+            position: relative;
+            width: 40%;
+            height: 100%;
+            @include flex(space-around, center, row);
+            img
+            {
+              position: relative;
+              width:auto;
+              max-height: 80%;
+            }
+            iframe
+            {
+              width: 100%;
+              height: 56%;
+            }
+          }
+          .mediaFull
+          {
+            width: 100%;
+            height: 90%;
+            iframe
+            {
+              width: 55%;
+              height: 80%;
+            }
+          }
+          .absoluteh3
+          {
+            @include positionTL(absolute, 0%, 50%);
+            transform: translate(-50%, -50%);
+            margin: 0;
+          }
+          .para
+          {
+            position: relative;
+            width: 50%;
+            height: 90%;
+            z-index: 100;
+            @include flex(flex-start, center, column);
+            border-bottom: 15px solid rgba(25, 34, 49, 0.4);
+            h3
+            {
+              font-size: $fontSize3;
+            }
+            p
+            {
+              font-size: $fontSize2;
+              padding: 30px;
+              overflow-y: scroll;
+            }
+            // .shadow
+            // {
+            //   position: absolute;
+            //   bottom: 0;
+            //   width: 100%;
+            //   height: 10%;
+            //   background: linear-gradient(0deg, rgba(25,34,49,1) 0%, rgba(25,34,49,0.7483368347338936) 25%, rgba(25,34,49,0.4990371148459384) 50%, rgba(25,34,49,0.24693627450980393) 75%, rgba(25,34,49,0) 100%);
+            // }
+            p::-webkit-scrollbar {
+              width: 5px;
+              height: 5px;
+            }
+            p::-webkit-scrollbar-thumb {
+              background: $color-btn;
+              border-radius: 100px;
+            }
+            p::-webkit-scrollbar-thumb:hover {
+              background: $color-btn;
+            }
+            p::-webkit-scrollbar-thumb:active {
+              background: $color-btn;
+            }
+            p::-webkit-scrollbar-track {
+              background: $color2;
+              border-radius: 50px;
+            }
+            p::-webkit-scrollbar-corner {
+              background: transparent;
+            }
+          }
+          .paraFull
+          {
+            width: 100%;
+          }
+        }
+      }
+      .active-slide{
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+    .progress
+    {
+      @include positionBL(absolute, 5%, 50%);
+      transform: translateX(-50%);
+      width: 70%;
+      height: 20px;
+      border-radius: 150px;
+      background: $color1;
+    }
+    .progressDone
+    {
+      @include flex(center, center, "");
+      @include positionBL(absolute, 0%, 0%);
+      background: $color-imp;
+      font-size: $fontSize2;
+      color: $color1;
+      font-weight: 600;
+      width: 0%;
+      height: 100%;
+      border-radius: 150px;
+      opacity: 0;
+      transition: .2s ease;
+    }
+  }
+  aside
+  {
+    display: none;
+  }
+  main
+  {
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    section
+    {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: $police;
+      font-family: "Muli";
+      .wp-heading-inline
+      {
+        color: $police;
+      }
+      .subsubsub
+      {
+        li
+        {
+          a
+          {
+            span
+            {
+              color: $police;
+            }
+          }
+        }
+      }
+      .tablenav-pages
+      {
+        color: $police;
+      }
+      .vc_grid-container
+      {
+        width: 100%;
+      }
+      article
+      {
+        position: relative;
+        width: 100%;
+        .ancreTop, .ancreDown
+        {
+          z-index: 24;
+          i
+          {
+            color: $police;
+            font-size:25px;
+            transition:.2s;
+          }
+          i:hover
+          {
+            color: $color-imp;
+          }
+        }
+        .ancreTop
+        {
+          z-index: 25;
+          @include positionBR(fixed, 20px, 10px);
+        }
+        .ancreDown
+        {
+          @include positionBR(fixed, 10px, 10px);
+        }
+      }
+      h1
+      {
+        color: $police;
+        z-index: 4;
+        font-size: $fontSize3;
+        font-family: "Montserrat", sans-serif;
+      }
+      ul
+      {
+        font-size: $fontSize2;
+        li
+        {
+          margin: 5px !important;
+        }
+      }
+      .vc_grid-filter-item
+      {
+        background: $color-btn !important;
+        font-weight: 600;
+        border-radius: 2px !important;
+        span{
+          color: $color1 !important;
+        }
+      }
+      .vc_grid-filter-item:hover
+      {
+        background-color: $police !important;
+        span
+        {
+          color: $color1 !important;
+        }
+      }
+      .vc_active
+      {
+        background-color: $police !important;
+        span{
+          color: $color1 !important;
+        }
+      }
+      .vc_grid-item-mini
+      {
+        border-radius: 5px;
+        overflow: hidden;
+        background: $color3;
+        color: $color1;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+      }
+      .vc_gitem-zone
+      {
+        background-color: $color3 !important;
+        font-size: $fontSize2;
+        color: $color-imp;
+        
+      }
+      .vc_btn3
+      {
+        position: absolute;
+        padding: 5px 10px !important;
+        border-radius: 2px !important;
+        background: $color-btn !important;
+        color: $color1 !important;
+        transform: translateX(-50%);
+        left: 50%;
+        font-weight: 600;
+        transition: .2s;
+      }
+      .vc_btn3:hover
+      {
+        background: $police !important;
+      }
+      .post-edit-link, .vc_inline-link
+      {
+        display: none;
+      }
+    }
+  }
+  .post
+  {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $police;
+    h1, h2
+    {
+      a
+      {
+        color: $police !important;
+      }
+    }
+    img
+    {
+      width: 100%;
+    }
+    .date
+    {
+      position: absolute;
+      top: 2%;
+      left: 0;
+      display: none;
+    }
+    .author
+    {
+      position: absolute;
+      top: 0%;
+      left: 0;
+      display: none;
+    }
+    span.comments
+    {
+      display: none;
+    }
+    p
+    {
+      a
+      {
+        color: $color-imp !important;
+        margin-left: 5px;
+      }
+    }
+    .wp-block-file
+    {
+      a 
+      {
+        color: $police !important;
+        transition: .2s;
+      }
+      a:hover
+      {
+        color: $color-imp !important;
+      }
+      .wp-block-file__button
+      {
+        color: $color1 !important;
+        background: $color-btn !important;
+        transition: .2s;
+      }
+      .wp-block-file__button:hover
+      {
+        background: $police !important;
+        color: $color1 !important;
+      }
+    }
+    .comments
+    {
+      margin: 30px;
+      background: $color3;
+      padding: 10px 20px;
+      border-radius: 5px;
+      .comment-author.vcard
+      {
+        position: relative;
+        max-width: 50%;
+        height: auto;
+        img
+        {
+          width: auto;
+        }
+      }
+      .comment-respond
+      {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        textarea
+        {
+          background: $color1;
+          border-radius: 5px;
+          border: none;
+          outline:none;
+          max-width: 800px;
+          max-height: 1000px;
+          min-height: 300px;
+          min-width: 500px;
+          color: $police;
+          padding: 5px;
+        }
+      }
+      .comment-form-comment
+      {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-submit
+      {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input[type="submit"]
+        {
+          font-size: $fontSize2;
+        }
+      }
+      h3
+      {
+        font-size: $fontSize2;
+      }
+      a
+      {
+        display: none;
+      }
+      .logged-in-as
+      {
+        display: none;
+      }
+    }
+  }
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background: $color-btn;
+  border-radius: 100px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: $color-btn;
+}
+body::-webkit-scrollbar-thumb:active {
+  background: $color-btn;
+}
+body::-webkit-scrollbar-track {
+  background: $color1;
+  border-radius: 50px;
+}
+body::-webkit-scrollbar-corner {
+  background: transparent;
+}
+body::scrollbar-color {
+  width: 5px;
+  height: 5px;
+}
+body::-ms-scrollbar-thumb {
+  background: $color-btn;
+  border-radius: 100px;
+}
+body::-ms-scrollbar-thumb:hover {
+  background: $color-btn;
+}
+body::-ms-scrollbar-thumb:active {
+  background: $color-btn;
+}
+body::-ms-scrollbar-track {
+  background: $color1;
+  border-radius: 50px;
+}
+body::-ms-scrollbar-corner {
+  background: transparent;
+}
+
+@import 'media';

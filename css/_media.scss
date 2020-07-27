@@ -1,0 +1,952 @@
+@import 'mixin', 'fontSize';
+// global responsive for cellphones
+@media (max-width: 820px) {
+  body
+  {
+    .above
+    {
+      z-index: 11;
+      .logo
+      {
+        width: 20%;
+        img
+        {
+          width: 100%;
+        }
+      }
+      .search
+      {
+        width: 70%;
+        .icons
+        {
+          i{
+            font-size: 3rem;
+          }
+        }
+        .profile_pic
+        {
+          .circle
+          {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+    .side
+    {
+      left: -60%;
+      width: 60%;
+      #p
+      {
+        display: block !important;
+      }
+    }
+    .sideNavLeft
+    {
+      left: 0 !important;
+    }
+    .big
+    {
+      width: 100% !important;
+    }
+    .content
+    {
+      width: 100%;
+      .h2board
+      {
+        top: 15%;
+      }
+      .board
+      {
+        .btns
+        {
+          top: 35%;
+          flex-direction: column;
+        }
+        .leadboard
+        {
+          position: absolute;
+          top: 55%;
+          height: 45%;
+        }
+      }
+      .home{
+        .dashboard
+        {
+          height: 700%;
+          @include gridRepeat(1fr, 1, 1fr ,11, 25px);
+          .actu, .quiz, .news, .results, .leaderboard
+          {
+            grid-column: 1/2;
+          }
+          .actu
+          {
+            grid-row: 1/5;
+            #buddypress
+            {
+              height: auto;
+              .activity-content
+              {
+                margin: 0px 0px 0px 0px;
+              }
+              li.activity
+              {
+                padding: 5px;
+              }
+            }
+          }
+          .quiz
+          {
+            grid-row: 5/6;
+            .contentQ
+            {
+              width: 70%;
+            }
+          }
+          .news
+          {
+            grid-row: 6/8;
+            .display-posts-listing.grid
+            {
+              height: 80%;
+              width: 60%;
+            }
+          }
+          .results
+          {
+            grid-row: 8/9;
+            .chartDiv
+            {
+              width: 85%;
+              height: 70%;
+              overflow: scroll;
+              #myChart
+            {
+              position: relative;
+              width: 150% !important;
+              height: 80% !important;
+            }
+            }
+            .chartDiv::-webkit-scrollbar {
+              width: 5px;
+              height: 5px;
+            }
+            .chartDiv::-webkit-scrollbar-thumb {
+              background: $color-btn;
+              border-radius: 100px;
+            }
+            .chartDiv::-webkit-scrollbar-thumb:hover {
+              background: $color-btn;
+            }
+            .chartDiv::-webkit-scrollbar-thumb:active {
+              background: $color-btn;
+            }
+            .chartDiv::-webkit-scrollbar-track {
+              background: $color2;
+              border-radius: 50px;
+            }
+            .chartDiv::-webkit-scrollbar-corner {
+              background: transparent;
+            }
+          }
+          .leaderboard
+          {
+            grid-row: 9/12;
+          }
+        }
+      }
+      .createQuizModule
+      {
+        .steps
+        {
+          width: 89%;
+        }
+        form
+        {
+          width: 100%;
+          flex-direction: column;
+          .textarea
+          {
+            width: 90%;
+            margin-bottom: 15px;
+          }
+          .content
+          {
+            width: 90%;
+          }
+          input[type="submit"]
+          {
+            position: relative;
+            transform: translate(0);
+            margin: 25px;
+            right: 0;
+          }
+        }
+      }  
+      .step2
+      {
+        .total
+        {
+          top: 95%;
+          right: 15px;
+        }
+        .steps
+        {
+          width: 80%;
+        }
+        form
+        {
+          width: 100%;
+          .questionPage
+          {
+            width: 90%;
+            .media
+            {
+              flex-direction: column;
+              div
+              {
+                width: 80%;
+              }
+            }
+            .answers
+            {
+              .abcd
+              {
+                .answer
+                {
+                  width: 80%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .step3
+      {
+        .steps
+        {
+          width: 80%;
+        }
+        .recap
+        {
+          .questions
+          {
+            width: 100%;
+            .answers
+            {
+              div
+              {
+                div
+                {
+                  i
+                  {
+                    margin: 5px;
+                  }
+                }
+              }
+            }
+          }
+          .pages
+          {
+            width: 100%;
+            height: 50%;
+            flex-direction: column;
+            iframe
+            {
+              width: 213.6px;
+              height: 120px;
+            }
+            .content
+            {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .svg_step1,.svg_step2_quiz, .svg_step2_module, .svg_step3
+      {
+        display: none;
+      }
+      .quizsL, .modulesL, .userL
+      {
+        .listUser
+        {
+          height: 70%;
+        }
+        .listQuiz, .listModules
+        {
+          width: 100%;
+          table
+          {
+            thead
+            { :nth-child(1)
+              {
+                width: 25%;
+              }
+              :nth-child(2)
+              {
+                width: 25%;
+              }
+            }
+          }
+        }
+      }
+      .generator
+      {
+        padding: 10px;
+        align-items: center;
+        #container
+        {
+          padding: 0;
+          margin: 0;
+          #intro
+          {
+            padding: 0;
+            margin-top: 30%;
+            font-size: $fontSize2;
+          }
+        }
+        form
+        {
+          margin: 0;
+          input
+          {
+            width: 100%;
+          }
+        }
+      }
+      .quizModules
+      {
+        .button-group
+        {
+          width: 100%;
+        }
+      }
+      .svg_pass
+      {
+        display: none;
+      }
+      .profile
+      {
+        margin-top: 40%;
+        width: 100%;
+        #profil
+        {
+          .picture
+          {
+            margin-bottom: 5%;
+            i
+            {
+              bottom: -20px;
+            }
+            span
+            {
+              width: 100%;
+              right: 0px;
+              bottom: -25px;
+            }
+            .img
+            {
+              margin-bottom: 25%;
+            }
+          }
+          div
+          {
+            width: 90%
+          }
+        }
+      }
+      .svg
+      {
+        display:none;
+      }
+      .post
+      {
+        .comments
+        {
+          padding: 0px 10px;
+          .comment-respond
+          {
+            textarea
+            {
+              max-width: 280px;
+              max-height: 500px;
+              min-height: 300px;
+              min-width: 280px;
+            }
+          }
+        }
+      }
+      .stats_camp
+      {
+        .select, .selectC
+        {
+          label
+          {
+            @include flex(center, center, column);
+          }
+        }
+        .container
+        {
+          flex-direction: column;
+        }
+        .tableContainer
+        {
+          width: 100%;
+          margin-bottom: 50px;
+          div
+          {
+            width: 100%;
+            height: 50%;
+            padding: 0px;
+          }
+        }
+      }
+      .new_camp
+      {
+        margin-top: 50%;
+        justify-content: flex-start;
+        align-items:center;
+        flex-direction : column;
+        form
+        {
+          width: 300px;
+          margin-bottom: 10px;
+        }
+        .listCamp
+        {
+          margin-left: 0;
+          margin-bottom: 10px;
+        }
+      }
+      .stats
+      {
+        button
+        {
+          width: 60px;
+        }
+        .btns
+        {
+          top: 25%;
+          flex-direction: column;
+        }
+        .mailSend
+        {
+          top: 0;
+          right: 0;
+        }
+        .users
+        {
+          .table
+          {
+            width: 95%;
+          }
+          .nbrUsers
+          {
+            width: 80%;
+          }
+          .select
+          {
+            top: 8%;
+            label
+            {
+              display: flex;
+              flex-direction: column;
+              span
+              {
+                text-align:center;
+              }
+            }
+            ul
+            {
+              width: auto;
+            }
+          }
+        }
+        .extract
+        {
+          top: 0px;
+          left: 0px;
+        }
+        .canvaDiv
+        {
+          margin-top: 60%;
+          width:100vw;
+          height: 200vw;
+          overflow-x: scroll;
+          display: flex;
+        }
+        canvas
+        {
+          width: 240vw !important;
+          height: 120vw !important;
+        }
+        .canvaDiv::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        .canvaDiv::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        .canvaDiv::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        .canvaDiv::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        .canvaDiv::-webkit-scrollbar-track {
+          background: $color2;
+          border-radius: 50px;
+        }
+        .canvaDiv::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+      .add_tag
+      {
+        align-items: start;
+        .contentTag
+        {
+          justify-content: flex-start;
+          flex-direction: column;
+          margin-top: 20%;
+          margin-bottom: 15px;
+          form,div
+          {
+            width: 300px;
+          }
+          div
+          {
+            margin: 0;
+            margin-bottom: 10px;
+          }
+          form
+          {
+            div
+            {
+              display: flex;
+              // align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+
+      }
+      .svg_tag
+      {
+        display:none;
+      }
+    }
+    .quizPlay
+    {
+      .slide
+      {
+        .answers
+        {
+          width: 90%;
+          margin-bottom: 30px;
+        }
+      }
+      .btns
+      {
+        margin-bottom: 50px;
+      }
+      .timer
+      {
+        bottom: 45px;
+      }
+      #results
+      {
+        .recap
+        {
+          width: 95%;
+        }
+      }
+    }
+    .vc_pageable-slide-wrapper
+    {
+      margin-right: 0 !important;
+    }
+    .vc_grid-item
+    {
+      padding-right: 0 !important;
+    }
+    .modulePlay
+    {
+      .module
+      {
+        .slide
+        {
+          span
+          {
+            top: 0px;
+            right: 0px;
+          }
+          .content
+          {
+            height: 100%;
+            flex-direction: column;
+            .medias
+            {
+              width: 100%;
+              img
+              {
+                max-height: 100%;
+              }
+              iframe{
+                height: 70%;
+              }
+            }
+            .mediaFull
+            {
+              iframe
+              {
+                width: 100%;
+                height: 70%;
+              }
+            }
+            .para
+            {
+              width: 100%;
+              height: 70%;
+              p
+              {
+                padding: 5px;
+              }
+            }
+          }
+        }
+      }
+      .btns
+      {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+// global responsive for tablets
+@media (min-width: 760px) and (max-width: 1100px)
+{
+  body
+  {
+    .side
+    {
+      left: -30%;
+      width: 30%;
+      #p
+      {
+        display: block !important;
+      }
+    }
+    .vc_grid-item
+    {
+      padding-right: 0 !important;
+      margin: 28px;
+    }
+    .sideNavLeft
+    {
+      left: 0 !important;
+    }
+    .big
+    {
+      width: 100% !important;
+    }
+    .modulePlay
+    {
+      .module
+      {
+        .slide
+        {
+          .content
+          {
+            flex-direction: column;
+            .medias
+            {
+              width: 80%;
+              iframe{
+                height: 70%;
+              }
+            }
+            .mediaFull
+            {
+              iframe
+              {
+                width: 100%;
+                height: 70%;
+              }
+            }
+            .para
+            {
+              width: 100%;
+              height: 80%;
+              p
+              {
+                padding: 5px;
+              }
+            }
+          }
+        }
+      }
+      .btns
+      {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .content
+    {
+      width: 100%;
+      .svg_tag
+      {
+        display: block;
+      }
+      .stats
+      {
+        canvas
+        {
+          margin-top: 20%;
+        }
+      }
+      .home{
+        display: flex;
+        justify-content: center;
+        .dashboard
+        {
+          width: 85%;
+          height: 500%;
+          @include gridRepeat(1fr, 1, 1fr ,9, 25px);
+          .actu, .quiz, .news, .results, .leaderboard
+          {
+            grid-column: 1/2;
+          }
+          .actu
+          {
+            grid-row: 1/4;
+            #buddypress
+            {
+              height: auto;
+            }
+          }
+          .quiz
+          {
+            grid-row: 4/5;
+            .contentQ
+            {
+              width: 70%;
+            }
+          }
+          .news
+          {
+            grid-row: 5/6;
+            .display-posts-listing.grid
+            {
+              height: 80%;
+              width: 30%;
+            }
+          }
+          .results
+          {
+            grid-row: 6/7;
+            .chartDiv
+            {
+              width: 85%;
+              height: 70%;
+              overflow: scroll;
+              #myChart
+            {
+              position: relative;
+              width: 150% !important;
+              height: 80% !important;
+            }
+            }
+            .chartDiv::-webkit-scrollbar {
+              width: 5px;
+              height: 5px;
+            }
+            .chartDiv::-webkit-scrollbar-thumb {
+              background: $color-btn;
+              border-radius: 100px;
+            }
+            .chartDiv::-webkit-scrollbar-thumb:hover {
+              background: $color-btn;
+            }
+            .chartDiv::-webkit-scrollbar-thumb:active {
+              background: $color-btn;
+            }
+            .chartDiv::-webkit-scrollbar-track {
+              background: $color2;
+              border-radius: 50px;
+            }
+            .chartDiv::-webkit-scrollbar-corner {
+              background: transparent;
+            }
+          }
+          .leaderboard
+          {
+            grid-row: 7/9;
+          }
+        }
+      }
+    }
+  }
+}
+// responsive for iphone 5 of "de ces morts"
+@media (min-width: 320px) and (max-width: 320px)
+{
+  body
+  {
+    .content
+    {
+      .add_tag
+      {
+        .contentTag
+        {
+          margin-top: 25%;
+          div, form
+          {
+            width: 250px;
+          }
+        }
+      }
+      .generator
+      {
+        #container
+        {
+          #intro
+          {
+            margin-top: 70%;
+          }
+        }
+      }
+      .profile
+      {
+        margin-top: 50%;
+      }
+      .quizModules
+      {
+        .grid
+        {
+          top: 30%;
+          .element-item
+          {
+            width: 220px;
+            height: 220px;
+            margin: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 568px) and (max-width: 568px)
+{
+  body
+  {
+    .content
+    {
+      .generator
+      {
+        #container
+        {
+          #intro
+          {
+            margin-top: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+// responsive for landscape
+@media (max-height: 500px)
+{
+  body
+  {
+    .above
+    {
+      height: 20%;
+    }
+    .side
+    {
+      top: 20%;
+      height: 80%;
+      #link
+      {
+        margin-bottom: 5px;
+        .dropMenu
+        {
+          top: -35%;
+        }
+      }
+    }
+    .content
+    {
+      height: 80%;
+      .h2board
+      {
+        margin-top: 0;
+      }
+      .home{
+        .dashboard
+        {
+          height: 1000%;
+        }
+      }
+      .quizModules
+      {
+        .button-group
+        {
+          top: 25%;
+        }
+      }
+      .stats
+      {
+        .btns
+        {
+          top: 35%;
+        }
+        .infoStats
+        {
+          top: 5px;
+          i
+          {
+            top: 10px;
+          }
+        }
+        .canvaDiv
+        {
+          margin-top: 20%;
+          overflow-x: initial;
+          justify-content: center;
+          canvas
+          {
+            width: 82vw !important;
+            height: 41vw !important;
+          }
+        }
+      }
+      .generator
+      {
+        #container
+        {
+          #intro
+          {
+            margin-top: 40%;
+          }
+        }
+      }
+      .createQuizModule
+      {
+        form
+        {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
