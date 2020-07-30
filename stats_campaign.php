@@ -1,4 +1,5 @@
-<?php /* Template Name: Stats Campagne */ get_header(); ?>
+<?php /* Template Name: Stats Campagne */ get_header(); 
 
+echo do_shortcode('[qm_display_campagne_stats]');
 
-<?php get_footer(); ?>
+ get_footer(); ?>

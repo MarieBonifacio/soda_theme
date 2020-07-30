@@ -1,5 +1,6 @@
-<?php /* Template Name: Nouvelle Campagne */ get_header(); ?>
+<?php /* Template Name: Nouvelle Campagne */ get_header();
+
+echo do_shortcode('[qm_display_creation_campagne]');
 
 
-
-<?php get_footer(); ?>
+get_footer(); ?>

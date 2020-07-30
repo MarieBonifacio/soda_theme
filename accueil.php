@@ -37,9 +37,7 @@ cleanSession();
       <h3>Vos résultats</h3>
 
       <div class=chartDiv>
-
-        <canvas id="myChart"></canvas>
-
+        <?php echo do_shortcode('[qm_display_stats_acceuil]');?>
       </div>
 
     </div>
@@ -66,29 +64,7 @@ cleanSession();
 
       <div class="leadboard">
 
-        <table>
-
-          <thead>
-
-              <tr>
-
-                  <th colspan="1">Pos</th>
-
-                  <th colspan="1">Joueur</th>
-
-                  <th colspan="1">Site</th>
-
-                  <th colspan="1">Moyenne</th>
-
-              </tr>
-
-          </thead>
-
-          <tbody class="tbody">
-
-          </tbody>
-
-        </table>
+       <?php echo do_shortcode('[qm_display_classement_acceuil]');?>
 
       </div>
 

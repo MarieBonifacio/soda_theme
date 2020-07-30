@@ -124,36 +124,36 @@ function html5blank_conditional_scripts()
     //         'theme_directory' => get_template_directory_uri(),
     //         'home_url' => home_url()
     //     ));
-    //}
-    if (is_page("accueil")) {
-        wp_enqueue_script('my-script', get_template_directory_uri() . '/js/home.js', null, true);
-        wp_localize_script('my-script', 'myScript', array(
-            'theme_directory' => get_template_directory_uri(),
-            'admin' => current_user_can('administrator'),
-            'editor' => current_user_can('editor'),
-        ));
-    }
+    // //}
+    // if (is_page("accueil")) {
+    //     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/home.js', null, true);
+    //     wp_localize_script('my-script', 'myScript', array(
+    //         'theme_directory' => get_template_directory_uri(),
+    //         'admin' => current_user_can('administrator'),
+    //         'editor' => current_user_can('editor'),
+    //     ));
+    // }
 
     if(is_page("generateur-de-mots-de-passe"))
     {
         wp_enqueue_script('my-script', get_template_directory_uri() . '/js/password.js', null, true);
     }
-    if(is_page("nouvelle-campagne"))
-    {
-        wp_enqueue_script('my-script', get_template_directory_uri() . '/js/camps.js', null, true);
-        wp_localize_script('my-script', 'myScript', array(
-            'theme_directory' => get_template_directory_uri(),
-            'home_url' => home_url()
-        ));
-    }
-    if(is_page("stats-campagnes"))
-    {
-        wp_enqueue_script('my-script', get_template_directory_uri() . '/js/stats_camps.js', null, true);
-        wp_localize_script('my-script', 'myScript', array(
-            'theme_directory' => get_template_directory_uri(),
-            'home_url' => home_url()
-        ));
-    }
+    // if(is_page("nouvelle-campagne"))
+    // {
+    //     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/camps.js', null, true);
+    //     wp_localize_script('my-script', 'myScript', array(
+    //         'theme_directory' => get_template_directory_uri(),
+    //         'home_url' => home_url()
+    //     ));
+    // }
+    // if(is_page("stats-campagnes"))
+    // {
+    //     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/stats_camps.js', null, true);
+    //     wp_localize_script('my-script', 'myScript', array(
+    //         'theme_directory' => get_template_directory_uri(),
+    //         'home_url' => home_url()
+    //     ));
+    // }
 }
 
 // Load HTML5 Blank styles
