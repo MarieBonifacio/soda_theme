@@ -52,18 +52,6 @@ cleanSession();
 
     <div class="window leaderboard">
 
-      <h3>Classement</h3>
-
-      <div class="btns">
-
-        <button class="gen">Général</button>
-
-        <button class="town">Votre site</button>
-
-      </div>
-
-      <div class="leadboard">
-
        <?php echo do_shortcode('[qm_display_classement_acceuil]');?>
 
       </div>
