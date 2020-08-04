@@ -36,9 +36,9 @@ if( $canEdit ){
 
   ?>
 
-    <h2 class="h2">Mon profil</h2>
 
-    <div class="profile">
+<div class="profile">
+  <h2 class="h2">Mon profil</h2>
 
       <?php
 

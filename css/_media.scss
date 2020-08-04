@@ -41,6 +41,13 @@
       {
         display: block !important;
       }
+      #link
+      {
+        .dropMenu
+        {
+          width: 140px;
+        }
+      }
     }
     .sideNavLeft
     {
@@ -122,6 +129,7 @@
       }
       .generator
       {
+        height: auto;
         padding: 10px;
         align-items: center;
         #container
@@ -131,7 +139,6 @@
           #intro
           {
             padding: 0;
-            margin-top: 30%;
             font-size: $fontSize2;
           }
         }
@@ -150,19 +157,20 @@
       }
       .profile
       {
-        margin-top: 40%;
+        height: auto;
         width: 100%;
         #profil
         {
           .picture
           {
-            margin-bottom: 5%;
+            margin-bottom: 10%;
             i
             {
               bottom: -20px;
             }
             span
             {
+              text-align: center;
               width: 100%;
               right: 0px;
               bottom: -25px;
@@ -174,7 +182,15 @@
           }
           div
           {
-            width: 90%
+            width: 90%;
+            input
+            {
+              margin-bottom: 10px;
+            }
+          }
+          input[type=submit]
+          {
+            margin-top: 10px;
           }
         }
       }
@@ -311,7 +327,7 @@
         {
           #intro
           {
-            margin-top: 70%;
+            // margin-top: 70%;
           }
         }
       }
@@ -328,16 +344,6 @@
   {
     .content
     {
-      .generator
-      {
-        #container
-        {
-          #intro
-          {
-            margin-top: 50%;
-          }
-        }
-      }
     }
   }
 }
@@ -356,9 +362,10 @@
       height: 80%;
       #link
       {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         .dropMenu
         {
+          width: 145px;
           top: -35%;
         }
       }
@@ -378,16 +385,6 @@
         .dashboard
         {
           height: 1000%;
-        }
-      }
-      .generator
-      {
-        #container
-        {
-          #intro
-          {
-            margin-top: 40%;
-          }
         }
       }
     }

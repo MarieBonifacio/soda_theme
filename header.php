@@ -43,8 +43,8 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
             tests: {}
         });
 		</script>
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+		<!-- <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script> -->
 	</head>
 	<body>
 
@@ -187,7 +187,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 					</ul>
 				</div>
 			<?php } ?> 
-			 <i class="fas fa-question"></i> 
+			 <!-- <i class="fas fa-question"></i>  -->
 		 </nav>  
 
 		 <div class="loader">

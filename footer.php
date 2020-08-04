@@ -2,8 +2,6 @@
 
 		<?php wp_footer(); ?>
 
-
-
 		<!-- analytics -->
 
 		<script>
@@ -21,8 +19,6 @@
 		ga('send', 'pageview');
 
 		</script>
-
-		<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/portail.js"></script> -->
 
 	</body>
 

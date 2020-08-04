@@ -1,5 +1,6 @@
 window.addEventListener('load', function (e) {
     function avatarCircle(){
+        jQuery(document).ready(function($) {
         $("body .content .home .dashboard .actu #buddypress img").css("border-radius","0");
         $("img[src*='avatar']").each(function(){
             $(this).css('min-witdh','auto');
@@ -38,6 +39,7 @@ window.addEventListener('load', function (e) {
             }
         });
         $(".avatarCirle").each(function(){
+        });
         });
     }
     avatarCircle();
