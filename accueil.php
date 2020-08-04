@@ -26,9 +26,9 @@ cleanSession();
 
     </div>
 
-    <div class="window quiz lastQ">
+    <div class="window quiz">
 
-      <h3>Dernier quiz</h3>
+       <?php echo do_shortcode('[qm_display_last_quiz]');?>
 
     </div>
 
