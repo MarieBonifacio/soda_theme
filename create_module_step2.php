@@ -5,7 +5,7 @@ get_header();
 echo do_shortcode('[qm_module_creation_2]'); 
 ?>
 
-<div class="svg_step2_module">
+<!-- <div class="svg_step2_module">
   <svg viewBox="0 0 1023 814" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="undraw_book_lover_mkck 1">
 <g clip-path="url(#clip0)">
@@ -212,7 +212,7 @@ echo do_shortcode('[qm_module_creation_2]');
 </defs>
 </svg>
 
-</div>
+</div> -->
 
 
 <?php get_footer()?>

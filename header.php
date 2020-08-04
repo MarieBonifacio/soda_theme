@@ -49,7 +49,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 	<body>
 
 
-		<nav class="above">
+		 <nav class="above">
 			<div class="logo">
 				<a href="<?php echo home_url(); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/logo/LogoCyberDéfense.png" alt="logo portail SODA cyber Défense">
@@ -58,11 +58,11 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<div class="search">
 				<i class="arrow fas fa-arrow-right"></i>
 				<div class="icons">
-					<!-- <div class="searchContainer">
+					 <div class="searchContainer">
 						<i class="fas fa-search"></i>
 						<input class="searchBar"></input>
-					</div> -->
-					<i class="far fa-bell">
+					</div> 
+					 <i class="far fa-bell">
 						<div class="notif">
 							<div class="notifs"></div>
 						</div>
@@ -97,10 +97,10 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 						<li>
 							<a target="_blank" href="<?php echo home_url()."/ajouter-un-nouvel-article"?>">Ajoutez un article</a>
 						</li>
-						<!-- <li>
+						 <li>
 							<a target="_blank" href="<?php echo home_url()."/liste-articles"?>">Liste des articles</a>
-						</li> -->
-					</ul>
+						</li> 
+					 </ul>
 				<?php } else { ?>
 					<div id="link" class="articles left">
 						<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
@@ -186,15 +186,15 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 						</li>
 					</ul>
 				</div>
-			<?php } ?>
-			<!-- <i class="fas fa-question"></i> -->
-		</nav>
+			<?php } ?> 
+			 <i class="fas fa-question"></i> 
+		 </nav>  
 
-		<div class="loader">
+		 <div class="loader">
 			<div class="bubble">
 				<p>Soda<span>CyberDéfense</span></p>
         <div class="wave1"></div>
         <div class="wave2"></div>
       </div>
-		</div>
+		</div> 
 		<section class="content big">

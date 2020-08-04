@@ -6,7 +6,7 @@ echo do_shortcode('[qm_quiz_creation_2]');
 ?>
 
 
-<div class="svg_step2_quiz">
+<!-- <div class="svg_step2_quiz">
   <svg viewBox="0 0 1004 837" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g id="undraw_questions_75e0 (1) 1">
   <g clip-path="url(#clip0)">
@@ -82,7 +82,7 @@ echo do_shortcode('[qm_quiz_creation_2]');
   </clipPath>
   </defs>
   </svg>
-</div>
+</div> -->
 
 
 

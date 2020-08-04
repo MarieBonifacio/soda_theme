@@ -4,7 +4,7 @@ get_header();
 echo do_shortcode('[qm_quiz_creation_3]'); 
 ?>
 
-<div class="svg_step3">
+<!-- <div class="svg_step3">
 <svg viewBox="0 0 810 873" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="undraw_completed_ngx6 1">
 <g clip-path="url(#clip0)">
@@ -51,5 +51,5 @@ echo do_shortcode('[qm_quiz_creation_3]');
 </defs>
 </svg>
 
-</div>
+</div> -->
 <?php get_footer();?>

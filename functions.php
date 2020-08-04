@@ -125,14 +125,13 @@ function html5blank_conditional_scripts()
     //         'home_url' => home_url()
     //     ));
     // //}
-    // if (is_page("accueil")) {
-    //     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/home.js', null, true);
-    //     wp_localize_script('my-script', 'myScript', array(
-    //         'theme_directory' => get_template_directory_uri(),
-    //         'admin' => current_user_can('administrator'),
-    //         'editor' => current_user_can('editor'),
-    //     ));
-    // }
+    if (is_page("accueil")) {
+        wp_enqueue_script('home', get_template_directory_uri() . '/js/home.js', null, true);
+        wp_localize_script('home', 'myScript', array(
+            'admin' => current_user_can('administrator'),
+            'editor' => current_user_can('editor'),
+        ));
+    }
 
     if(is_page("generateur-de-mots-de-passe"))
     {

@@ -1,6 +1,6 @@
 @import 'mixin', 'fontSize';
 // global responsive for cellphones
-@media (max-width: 820px) {
+@media (max-width: 825px) {
   body
   {
     .above
@@ -57,20 +57,6 @@
       {
         top: 15%;
       }
-      .board
-      {
-        .btns
-        {
-          top: 35%;
-          flex-direction: column;
-        }
-        .leadboard
-        {
-          position: absolute;
-          top: 55%;
-          height: 45%;
-        }
-      }
       .home{
         .dashboard
         {
@@ -116,39 +102,6 @@
           .results
           {
             grid-row: 8/9;
-            .chartDiv
-            {
-              width: 85%;
-              height: 70%;
-              overflow: scroll;
-              #myChart
-            {
-              position: relative;
-              width: 150% !important;
-              height: 80% !important;
-            }
-            }
-            .chartDiv::-webkit-scrollbar {
-              width: 5px;
-              height: 5px;
-            }
-            .chartDiv::-webkit-scrollbar-thumb {
-              background: $color-btn;
-              border-radius: 100px;
-            }
-            .chartDiv::-webkit-scrollbar-thumb:hover {
-              background: $color-btn;
-            }
-            .chartDiv::-webkit-scrollbar-thumb:active {
-              background: $color-btn;
-            }
-            .chartDiv::-webkit-scrollbar-track {
-              background: $color2;
-              border-radius: 50px;
-            }
-            .chartDiv::-webkit-scrollbar-corner {
-              background: transparent;
-            }
           }
           .leaderboard
           {
@@ -156,140 +109,15 @@
           }
         }
       }
-      .createQuizModule
-      {
-        .steps
-        {
-          width: 89%;
-        }
-        form
-        {
-          width: 100%;
-          flex-direction: column;
-          .textarea
-          {
-            width: 90%;
-            margin-bottom: 15px;
-          }
-          .content
-          {
-            width: 90%;
-          }
-          input[type="submit"]
-          {
-            position: relative;
-            transform: translate(0);
-            margin: 25px;
-            right: 0;
-          }
-        }
-      }  
-      .step2
-      {
-        .total
-        {
-          top: 95%;
-          right: 15px;
-        }
-        .steps
-        {
-          width: 80%;
-        }
-        form
-        {
-          width: 100%;
-          .questionPage
-          {
-            width: 90%;
-            .media
-            {
-              flex-direction: column;
-              div
-              {
-                width: 80%;
-              }
-            }
-            .answers
-            {
-              .abcd
-              {
-                .answer
-                {
-                  width: 80%;
-                }
-              }
-            }
-          }
-        }
-      }
-      .step3
-      {
-        .steps
-        {
-          width: 80%;
-        }
-        .recap
-        {
-          .questions
-          {
-            width: 100%;
-            .answers
-            {
-              div
-              {
-                div
-                {
-                  i
-                  {
-                    margin: 5px;
-                  }
-                }
-              }
-            }
-          }
-          .pages
-          {
-            width: 100%;
-            height: 50%;
-            flex-direction: column;
-            iframe
-            {
-              width: 213.6px;
-              height: 120px;
-            }
-            .content
-            {
-              width: 100%;
-            }
-          }
-        }
-      }
       .svg_step1,.svg_step2_quiz, .svg_step2_module, .svg_step3
       {
         display: none;
       }
-      .quizsL, .modulesL, .userL
+      .userL
       {
         .listUser
         {
           height: 70%;
-        }
-        .listQuiz, .listModules
-        {
-          width: 100%;
-          table
-          {
-            thead
-            { :nth-child(1)
-              {
-                width: 25%;
-              }
-              :nth-child(2)
-              {
-                width: 25%;
-              }
-            }
-          }
         }
       }
       .generator
@@ -314,13 +142,6 @@
           {
             width: 100%;
           }
-        }
-      }
-      .quizModules
-      {
-        .button-group
-        {
-          width: 100%;
         }
       }
       .svg_pass
@@ -378,191 +199,9 @@
           }
         }
       }
-      .stats_camp
-      {
-        .select, .selectC
-        {
-          label
-          {
-            @include flex(center, center, column);
-          }
-        }
-        .container
-        {
-          flex-direction: column;
-        }
-        .tableContainer
-        {
-          width: 100%;
-          margin-bottom: 50px;
-          div
-          {
-            width: 100%;
-            height: 50%;
-            padding: 0px;
-          }
-        }
-      }
-      .new_camp
-      {
-        margin-top: 50%;
-        justify-content: flex-start;
-        align-items:center;
-        flex-direction : column;
-        form
-        {
-          width: 300px;
-          margin-bottom: 10px;
-        }
-        .listCamp
-        {
-          margin-left: 0;
-          margin-bottom: 10px;
-        }
-      }
-      .stats
-      {
-        button
-        {
-          width: 60px;
-        }
-        .btns
-        {
-          top: 25%;
-          flex-direction: column;
-        }
-        .mailSend
-        {
-          top: 0;
-          right: 0;
-        }
-        .users
-        {
-          .table
-          {
-            width: 95%;
-          }
-          .nbrUsers
-          {
-            width: 80%;
-          }
-          .select
-          {
-            top: 8%;
-            label
-            {
-              display: flex;
-              flex-direction: column;
-              span
-              {
-                text-align:center;
-              }
-            }
-            ul
-            {
-              width: auto;
-            }
-          }
-        }
-        .extract
-        {
-          top: 0px;
-          left: 0px;
-        }
-        .canvaDiv
-        {
-          margin-top: 60%;
-          width:100vw;
-          height: 200vw;
-          overflow-x: scroll;
-          display: flex;
-        }
-        canvas
-        {
-          width: 240vw !important;
-          height: 120vw !important;
-        }
-        .canvaDiv::-webkit-scrollbar {
-          width: 5px;
-          height: 5px;
-        }
-        .canvaDiv::-webkit-scrollbar-thumb {
-          background: $color-btn;
-          border-radius: 100px;
-        }
-        .canvaDiv::-webkit-scrollbar-thumb:hover {
-          background: $color-btn;
-        }
-        .canvaDiv::-webkit-scrollbar-thumb:active {
-          background: $color-btn;
-        }
-        .canvaDiv::-webkit-scrollbar-track {
-          background: $color2;
-          border-radius: 50px;
-        }
-        .canvaDiv::-webkit-scrollbar-corner {
-          background: transparent;
-        }
-      }
-      .add_tag
-      {
-        align-items: start;
-        .contentTag
-        {
-          justify-content: flex-start;
-          flex-direction: column;
-          margin-top: 20%;
-          margin-bottom: 15px;
-          form,div
-          {
-            width: 300px;
-          }
-          div
-          {
-            margin: 0;
-            margin-bottom: 10px;
-          }
-          form
-          {
-            div
-            {
-              display: flex;
-              // align-items: center;
-              justify-content: center;
-            }
-          }
-        }
-
-      }
       .svg_tag
       {
         display:none;
-      }
-    }
-    .quizPlay
-    {
-      .slide
-      {
-        .answers
-        {
-          width: 90%;
-          margin-bottom: 30px;
-        }
-      }
-      .btns
-      {
-        margin-bottom: 50px;
-      }
-      .timer
-      {
-        bottom: 45px;
-      }
-      #results
-      {
-        .recap
-        {
-          width: 95%;
-        }
       }
     }
     .vc_pageable-slide-wrapper
@@ -572,59 +211,6 @@
     .vc_grid-item
     {
       padding-right: 0 !important;
-    }
-    .modulePlay
-    {
-      .module
-      {
-        .slide
-        {
-          span
-          {
-            top: 0px;
-            right: 0px;
-          }
-          .content
-          {
-            height: 100%;
-            flex-direction: column;
-            .medias
-            {
-              width: 100%;
-              img
-              {
-                max-height: 100%;
-              }
-              iframe{
-                height: 70%;
-              }
-            }
-            .mediaFull
-            {
-              iframe
-              {
-                width: 100%;
-                height: 70%;
-              }
-            }
-            .para
-            {
-              width: 100%;
-              height: 70%;
-              p
-              {
-                padding: 5px;
-              }
-            }
-          }
-        }
-      }
-      .btns
-      {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
     }
   }
 }
@@ -655,62 +241,12 @@
     {
       width: 100% !important;
     }
-    .modulePlay
-    {
-      .module
-      {
-        .slide
-        {
-          .content
-          {
-            flex-direction: column;
-            .medias
-            {
-              width: 80%;
-              iframe{
-                height: 70%;
-              }
-            }
-            .mediaFull
-            {
-              iframe
-              {
-                width: 100%;
-                height: 70%;
-              }
-            }
-            .para
-            {
-              width: 100%;
-              height: 80%;
-              p
-              {
-                padding: 5px;
-              }
-            }
-          }
-        }
-      }
-      .btns
-      {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-    }
     .content
     {
       width: 100%;
       .svg_tag
       {
         display: block;
-      }
-      .stats
-      {
-        canvas
-        {
-          margin-top: 20%;
-        }
       }
       .home{
         display: flex;
@@ -752,39 +288,6 @@
           .results
           {
             grid-row: 6/7;
-            .chartDiv
-            {
-              width: 85%;
-              height: 70%;
-              overflow: scroll;
-              #myChart
-            {
-              position: relative;
-              width: 150% !important;
-              height: 80% !important;
-            }
-            }
-            .chartDiv::-webkit-scrollbar {
-              width: 5px;
-              height: 5px;
-            }
-            .chartDiv::-webkit-scrollbar-thumb {
-              background: $color-btn;
-              border-radius: 100px;
-            }
-            .chartDiv::-webkit-scrollbar-thumb:hover {
-              background: $color-btn;
-            }
-            .chartDiv::-webkit-scrollbar-thumb:active {
-              background: $color-btn;
-            }
-            .chartDiv::-webkit-scrollbar-track {
-              background: $color2;
-              border-radius: 50px;
-            }
-            .chartDiv::-webkit-scrollbar-corner {
-              background: transparent;
-            }
           }
           .leaderboard
           {
@@ -802,17 +305,6 @@
   {
     .content
     {
-      .add_tag
-      {
-        .contentTag
-        {
-          margin-top: 25%;
-          div, form
-          {
-            width: 250px;
-          }
-        }
-      }
       .generator
       {
         #container
@@ -826,19 +318,6 @@
       .profile
       {
         margin-top: 50%;
-      }
-      .quizModules
-      {
-        .grid
-        {
-          top: 30%;
-          .element-item
-          {
-            width: 220px;
-            height: 220px;
-            margin: 10px;
-          }
-        }
       }
     }
   }
@@ -887,6 +366,10 @@
     .content
     {
       height: 80%;
+      .svg_tag
+      {
+        display: none;
+      }
       .h2board
       {
         margin-top: 0;
@@ -897,39 +380,6 @@
           height: 1000%;
         }
       }
-      .quizModules
-      {
-        .button-group
-        {
-          top: 25%;
-        }
-      }
-      .stats
-      {
-        .btns
-        {
-          top: 35%;
-        }
-        .infoStats
-        {
-          top: 5px;
-          i
-          {
-            top: 10px;
-          }
-        }
-        .canvaDiv
-        {
-          margin-top: 20%;
-          overflow-x: initial;
-          justify-content: center;
-          canvas
-          {
-            width: 82vw !important;
-            height: 41vw !important;
-          }
-        }
-      }
       .generator
       {
         #container
@@ -938,13 +388,6 @@
           {
             margin-top: 40%;
           }
-        }
-      }
-      .createQuizModule
-      {
-        form
-        {
-          width: 100%;
         }
       }
     }

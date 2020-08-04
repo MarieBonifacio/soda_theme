@@ -11,13 +11,9 @@ if( $_SESSION['quizEdit'] !== true){
 
 ?>
 
-<h2 class="h2">Créez votre quiz</h2>
+<?php echo do_shortcode('[qm_quiz_creation_1]'); ?>
 
-<div class="createQuizModule">
-    <?php echo do_shortcode('[qm_quiz_creation_1]'); ?>
-</div>
-
-<div class="svg_step1">
+<!-- <div class="svg_step1">
     <svg viewBox="0 0 803 591" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="undraw_researching_22gp 1">
     <g clip-path="url(#clip0)">
@@ -108,7 +104,7 @@ if( $_SESSION['quizEdit'] !== true){
     </clipPath>
     </defs>
     </svg>
-</div>
+</div> -->
 
 
 <?php get_footer(); ?>
