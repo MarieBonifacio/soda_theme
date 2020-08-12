@@ -89,6 +89,15 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<div id="link" class="home">
 				<a id="a" href="<?php echo home_url()."/accueil" ?>"><i class="fas fa-home"></i><p id="p">Accueil</p></a>
 			</div>
+			<div id="link" class="bgQuiz">
+				<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><i class="fas fa-hamburger"></i><p id="p">Bagel Quiz</p></a>
+				<i class="drop fas fa-sort-down" data-id="bgQuiz"></i>
+				<ul class=" menuDown dropMenu" id="bgQuiz">
+					<li>
+						<a href="<?php echo home_url()."/creationbagelquiz"?>">Création Bagel Quiz</a>
+					</li>
+				</ul>
+			</div>
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link" class="articles">
 					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>

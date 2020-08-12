@@ -27,7 +27,7 @@ window.addEventListener("load", ()=>{
     if (password.match(/[0-9]+/)){
       strength += 1;
     }
-    if (password.match(/[$@#&!%£§ù*¨^]+/)){
+    if (password.match(/[?$@#&!%£§*¨µ^~]+/)){
       strength += 1;
     }
 
