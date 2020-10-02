@@ -1,3 +1,5 @@
-<?php /* Template Name: bgQuiz */ get_header(); ?>
-<h2>Menu Bagel Quiz</h2>
-<?php get_footer(); ?>
+<?php /* Template Name: bgQuiz */ 
+get_header();
+echo do_shortcode('[bg_display_menu]');
+get_footer();
+?>

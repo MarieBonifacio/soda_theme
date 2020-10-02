@@ -293,6 +293,13 @@ body
     transition: .2s;
     z-index: 10;
     @include flex(flex-start, center, column);
+    i{
+      transition: .2s;
+    }
+    i:hover{
+      color: $color-imp;
+      cursor: pointer;
+    }
     div
     {
       position: relative;
@@ -318,7 +325,6 @@ body
         z-index: 3;
         li
         {
-          margin: 5px;
           a
           {
             color: $police;
@@ -333,22 +339,22 @@ body
       {
         color: $icon-home;
       }
-      .fa-sort-down
+      .fa-caret-right
       {
         margin: 10px;
-        transform: rotate(-90deg);
       }
       #a
       {
         position: relative;
-        width: 80%;
         transition: .2s;
+        margin-left: 10px;
         @include flex(space-around, center, row);
+        i{
+          margin-right: 10px;
+        }
         p
         {
           display: none;
-          margin-right: 10%;
-          width: 50%;
           color: $police;
           font-size: $fontSize2;
           font-family: "Montserrat";
@@ -372,19 +378,9 @@ body
     {
       margin-top: 15px;
     }
-    // .fa-question
-    // {
-    //   @include positionTR(absolute, "", 10px);
-    //   bottom: 10px;
-    //   font-size: $fontSize3;
-    // }
     .left
     {
       @include flex(flex-start, center, row);
-      a
-      {
-        margin-left: 5%;
-      }
     }
   }
   // class to shrink the side nav
@@ -398,7 +394,7 @@ body
   }
   .sideNavLeft
   {
-    left: 0;
+    left: 0%;
   }
   .loader
   {
@@ -520,6 +516,9 @@ body
     right: 0;
     bottom: 0;
     @include flex(space-between, center, column);
+    h1{
+      display: none;
+    }
     .h2
     {
       // transform: translate(-50%, -50%);
@@ -620,7 +619,7 @@ body
         display: grid;
         width: 100%;
         height: 100%;
-        @include gridRepeat(1fr, 7, 1fr ,5, 25px);
+        @include gridRepeat(1fr, 7, 1fr ,5, 10px);
         .actu
         {
           grid-column: 1/3;
@@ -1012,6 +1011,23 @@ body
       input[type="submit"]
       {
         font-size: $fontSize3;
+      }
+      i{
+        transition: .2s;
+      }
+      i:hover{
+        cursor: pointer; 
+        color: $color-imp;
+      }
+      .mess{
+        text-align: center;
+        font-weight: 600;
+      }
+      .error{
+        color: red;
+      }
+      .good{
+        color: #3AD29F;
       }
       #profil
       {
@@ -2088,20 +2104,29 @@ body
   main
   {
     position: absolute;
-    top: 5%;
+    top: 0%;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    .clear{
+      display: none;
+    }
     section
     {
       width: 90%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       color: $police;
       font-family: "Muli";
+      article{
+        position: relative;
+        height: 100%;
+      }
       .wp-heading-inline
       {
         color: $police;

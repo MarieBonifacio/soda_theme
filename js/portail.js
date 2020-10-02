@@ -149,14 +149,7 @@ window.addEventListener('load', function (e) {
                 dropMenus.forEach(dropMenu => {
                     if(dropMenu.id == id)
                     {
-                        if(menu.classList.contains("dropMenuAppear"))
-                        {
-                            menu.classList.remove("dropMenuAppear");
-                        }
-                        else
-                        {
-                            menu.classList.add("dropMenuAppear");
-                        }
+                        menu.classList.toggle("dropMenuAppear")
                     }
                     else if(dropMenu.id != id)
                     {
@@ -170,14 +163,7 @@ window.addEventListener('load', function (e) {
         dropMenuProfile = document.querySelector(".dropMenuProfile");
 
         profil.addEventListener("click", ()=>{
-            if(dropMenuProfile.classList.contains("dropMenuProfileAppear"))
-            {
-                dropMenuProfile.classList.remove("dropMenuProfileAppear");
-            }
-            else
-            {
-                dropMenuProfile.classList.add("dropMenuProfileAppear");
-            }
+            dropMenuProfile.classList.toggle("dropMenuProfileAppear");
         })
 
         // click event on the arrow which will activate the growth side nav or shrink it
@@ -189,36 +175,29 @@ window.addEventListener('load', function (e) {
 
         // if(window.innerWidth>1100)
         // {
-            arrow.addEventListener("click", ()=>{
-                if(arrow.classList.contains("fa-arrow-left"))
-                {
-                    arrow.classList.remove("fa-arrow-left");
-                    arrow.classList.add("fa-arrow-right");
-                    sideNav.classList.remove("shrink");
-                    p.forEach(p => {
-                        p.classList.remove("para");
-                    });
-                    contenu.classList.add("big");
-                    sideNav.classList.remove("sideNavLeft");
-                }
-                else
-                {
-                    arrow.classList.remove("fa-arrow-right");
-                    arrow.classList.add("fa-arrow-left");
-                    sideNav.classList.add("shrink");
-                    p.forEach(p => {
+        arrow.addEventListener("click", ()=>{
+            sideNav.classList.toggle("shrink");
+            sideNav.classList.toggle("sideNavLeft");
+            contenu.classList.toggle("big");
+            arrow.classList.toggle("fa-arrow-left");
+            arrow.classList.toggle("fa-arrow-right");
+            p.forEach(p => {
+                if(p.classList.contains("para")){
+                    p.classList.remove("para");
+                }else{
+                    setTimeout(() => {
                         p.classList.add("para");
-                    });
-                    contenu.classList.remove("big");
-                    sideNav.classList.add("sideNavLeft");
+                    }, 100);
                 }
-                dropMenus.forEach(menu => {
-                    if(menu.classList.contains("dropMenuAppear"))
-                    {
-                        menu.classList.remove("dropMenuAppear")
-                    }
-                });
             });
+
+            dropMenus.forEach(menu => {
+                if(menu.classList.contains("dropMenuAppear"))
+                {
+                    menu.classList.remove("dropMenuAppear")
+                }
+            });
+        });
     }
     else
     {
