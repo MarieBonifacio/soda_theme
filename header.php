@@ -91,7 +91,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			</div>
 			<div id="link" class="bgQuiz">
 				<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><i class="fas fa-hamburger"></i><p id="p">Bagel Quiz</p></a>
-				<i class="drop fas fa-sort-down" data-id="bgQuiz"></i>
+				<i class="drop fas fa-caret-right" data-id="bgQuiz"></i>
 				<ul class=" menuDown dropMenu" id="bgQuiz">
 					<li>
 						<a href="<?php echo home_url()."/creationbagelquiz"?>">Création Bagel Quiz</a>
@@ -101,7 +101,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link" class="articles">
 					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
-					<i class="drop fas fa-sort-down" data-id="articles"></i>
+					<i class="drop fas fa-caret-right" data-id="articles"></i>
 					<ul class=" menuDown dropMenu" id="articles">
 						<li>
 							<a target="_blank" href="<?php echo home_url()."/ajouter-un-nouvel-article"?>">Ajoutez un article</a>
@@ -118,7 +118,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link" class="modules">
 					<a id="a" href="<?php echo home_url()."/menu-module" ?>"><i class="fas fa-graduation-cap"></i><p id="p">Modules</p></a>
-					<i class="drop fas fa-sort-down" data-id="modules"></i>
+					<i class="drop fas fa-caret-right" data-id="modules"></i>
 					<ul class=" menuDown dropMenu" id="modules">
 						<li>
 							<a href="<?php echo home_url()."/creationmoduleetape1"?>">Créez votre module</a>
@@ -134,7 +134,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			</div>
 			<div id="link"  class="tools">
 				<a id="a" href="<?php echo home_url()."/generateur-de-mots-de-passe"?>"><i class="fas fa-tools"></i><p id="p">Outils</p></a>
-				<i class="drop fas fa-sort-down" data-id="tools"></i>
+				<i class="drop fas fa-caret-right" data-id="tools"></i>
 				<ul class=" menuDown dropMenu" id="tools">
 						<li>
 							<a href="<?php echo home_url()."/generateur-de-mots-de-passe"?>">Générateur de mot de passe solide</a>
@@ -144,7 +144,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link"  class="quiz">
 					<a id="a" href="<?php echo home_url()."/menu-quiz" ?>"><i class="fas fa-question-circle"></i><p id="p">Quiz</p></a>
-					<i class="drop fas fa-sort-down" data-id="quizs"></i>
+					<i class="drop fas fa-caret-right" data-id="quizs"></i>
 						<ul class=" menuDown dropMenu" id="quizs">
 							<li>
 								<a href="<?php echo home_url()."/creationquizetape1"?>">Créez votre quiz</a>
@@ -167,7 +167,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			?>
 				<div id="link" class="campaigns">
 					<a id="a" href="<?php echo home_url()."/nouvelle-campagne" ?>"><i class="fas fa-shield-alt"></i><p id="p">Campagnes</p></a>
-					<i class="drop fas fa-sort-down" data-id="campaigns"></i>
+					<i class="drop fas fa-caret-right" data-id="campaigns"></i>
 					<ul class=" menuDown dropMenu" id="campaigns">
 						<li>
 							<a href="<?php echo home_url()."/stats-campagnes" ?>">Stats des campagnes</a>
@@ -176,7 +176,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 				</div>
 				<div id="link" class="admin">
 					<a id="a" href="<?php echo home_url()."/wp-admin" ?>" target="_blank"><i class="fab fa-wordpress <?php echo $users != 0 ? "notifUser" : ""; ?>"></i><p id="p">Administration</p></a>
-					<i class="drop fas fa-sort-down" data-id="admin"></i>
+					<i class="drop fas fa-caret-right" data-id="admin"></i>
 					<ul class=" menuDown dropMenu" id="admin">
 						<li>
 							<a href="<?php echo home_url()."/activation-utilisateurs" ?>" class="<?php echo $users != 0 ? "notifUser" : ""; ?>">Nouveaux Utilisateurs</a>
