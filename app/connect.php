@@ -9,14 +9,13 @@ include($path.'wp-load.php');
 
 
 if(!empty($_POST['mail']) && !empty($_POST['mdp'])){
-
+    $test = wp_get_current_user();
+    update_user_meta($user_id, 'test', $test);
     global $wpdb;
 
     $mail = $_POST['mail'];
 
     $password = $_POST['mdp'];
-
-
 
     $r = $wpdb->get_row("SELECT * FROM wp_users where user_email='".$mail."'");
 
@@ -44,6 +43,8 @@ if(!empty($_POST['mail']) && !empty($_POST['mdp'])){
         if((int)get_user_meta($r->ID, "status", true) === 1){
             $_SESSION['userConnected'] = $r->ID;
             $user = wp_signon( $creds, false );
+            $uid = $r->ID;
+            wp_set_current_user($uid);
             setcookie('user', json_encode([
                 "userConnected" => $r->ID,
             ]), time() + 3600 * 24 * 30);

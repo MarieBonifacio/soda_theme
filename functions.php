@@ -599,5 +599,60 @@ function redirect_non_admin_users() {
 	}
 }
 
+//LEADERBOARD
+// function getUserClassement($userId = null, $ville=null, $limit=null){
+//     global $wpdb;
+//     $sql = "SELECT quiz_score.user_id, avg(quiz_score.score) AS moyenne,  sum(quiz_score.time) AS time, count(quiz_score.id) AS count,  wp_users.display_name,  wp_usermeta.meta_value ";
+//     $sql .= "FROM quiz_score LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' ";
+
+//     if($ville !== null){
+//         $sql .= "WHERE wp_usermeta.meta_value='".$ville."'";
+//     }
+
+//     $sql .= "group by quiz_score.user_id ORDER BY avg(quiz_score.score) DESC, sum(quiz_score.time) ASC, count(quiz_score.id) DESC ";
+
+//     if($limit != null){
+//         $sql .= "LIMIT ".$limit;
+//     }
+
+//     $q = $wpdb->get_results($sql);
+//     $userQuery = $wpdb->get_row("SELECT wp_users.display_name AS name,  wp_usermeta.meta_value as city FROM quiz_score LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' WHERE wp_users.ID='.$userId.'");
+//     $place = null;
+//     $userStat = null;
+
+//     if (array_search($userId, array_column($q,'user_id')) !== false){
+//         $place = array_search($userId, array_column($q,'user_id')) + 1;
+//         $userStat = $q[array_search($userId, array_column($q,'user_id'))];
+//     }
+
+//     return array(
+//         "classement" => array_slice($q, 0, 30),
+//         "userPlace" => $place,
+//         "userStat" => $userStat,
+//     );
+// }
+
+
+// function getCityClassement($quizId = null){
+//     global $wpdb;
+//     //Select la moyenne du score de la table quiz_score comme "moyenne" + la somme du temps dans la table quiz_score comme "temps" 
+//     //+ le nombre d'idi dans quiz_score comme "compteur de quizs" + le nom de la ville (meta value) dans la table wp_usermeta comme "ville"
+//     $sql = "SELECT avg(quiz_score.score) AS moyenne,  sum(quiz_score.time) AS time, count(quiz_score.id) AS quizCount, wp_usermeta.meta_value AS city ";
+//     $sql .= "FROM quiz_score LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' ";
+
+//     if($quizId !== null){
+//         $sql .= "WHERE quiz_score.quiz_id='".$quizId."'";
+//     }
+//     $sql .= "group by wp_usermeta.meta_value order by avg(quiz_score.score) DESC, sum(quiz_score.time) ASC, count(quiz_score.id) DESC";
+//     return $wpdb->get_results($sql);
+// }
+
+// Tous les résultats de l'user
+// function getUserResults($userId){
+//     global $wpdb;
+//     return $wpdb->get_results( "SELECT quiz.name, quiz_score.score, quiz_score.time FROM quiz_score left join quiz ON quiz_score.quiz_id = quiz.id WHERE quiz_score.user_id=$userId" );
+
+// }
+
 
 ?>

@@ -1,5 +1,3 @@
-
-
 <?php /* Template Name: Add Tag*/ 
 
 $_SESSION['needAdmin'] = true;
