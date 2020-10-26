@@ -90,7 +90,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 				<a id="a" href="<?php echo home_url()."/accueil" ?>"><i class="fas fa-home"></i><p id="p">Accueil</p></a>
 			</div>
 			<div id="link" class="bgQuiz">
-				<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><i class="fas fa-hamburger"></i><p id="p">Bagel Quiz</p></a>
+				<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo/bagelquizzlogo.png" class="bagelQuizImg"></img><p id="p">Bagel Quiz</p></a>
 				<i class="drop fas fa-caret-right" data-id="bgQuiz"></i>
 				<ul class=" menuDown dropMenu" id="bgQuiz">
 					<li>
