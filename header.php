@@ -96,6 +96,15 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 					<li>
 						<a href="<?php echo home_url()."/creationbagelquiz"?>">Création Bagel Quiz</a>
 					</li>
+					<li>
+						<a href="<?php echo home_url()."/creation-de-tournoi"?>">Création de tournoi</a>
+					</li>
+					<li>
+						<a href="<?php echo home_url()."/liste-des-quiz"?>">Liste des quiz</a>
+					</li>
+					<li>
+						<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
+					</li>
 				</ul>
 			</div>
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
@@ -106,10 +115,10 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 						<li>
 							<a target="_blank" href="<?php echo home_url()."/ajouter-un-nouvel-article"?>">Ajoutez un article</a>
 						</li>
-						 <li>
+						<li>
 							<a target="_blank" href="<?php echo home_url()."/liste-articles"?>">Liste des articles</a>
 						</li> 
-					 </ul>
+					</ul>
 				<?php } else { ?>
 					<div id="link" class="articles left">
 						<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
