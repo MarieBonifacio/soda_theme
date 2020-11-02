@@ -89,24 +89,38 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 			<div id="link" class="home">
 				<a id="a" href="<?php echo home_url()."/accueil" ?>"><i class="fas fa-home"></i><p id="p">Accueil</p></a>
 			</div>
-			<div id="link" class="bgQuiz">
-				<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo/bagelquizzlogo.png" class="bagelQuizImg"></img><p id="p">Bagel Quiz</p></a>
-				<i class="drop fas fa-caret-right" data-id="bgQuiz"></i>
-				<ul class=" menuDown dropMenu" id="bgQuiz">
-					<li>
-						<a href="<?php echo home_url()."/creationbagelquiz"?>">Création Bagel Quiz</a>
-					</li>
-					<li>
-						<a href="<?php echo home_url()."/creation-de-tournoi"?>">Création de tournoi</a>
-					</li>
-					<li>
-						<a href="<?php echo home_url()."/liste-des-quiz"?>">Liste des quiz</a>
-					</li>
-					<li>
-						<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
-					</li>
-				</ul>
-			</div>
+			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+				<div id="link" class="bgQuiz">
+					<a id="a" href="<?php echo home_url()."/bagelquiz" ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo/bagelquizzlogo.png" class="bagelQuizImg"></img><p id="p">Bagel Quiz</p></a>
+					<i class="drop fas fa-caret-right" data-id="bgQuiz"></i>
+					<ul class=" menuDown dropMenu" id="bgQuiz">
+						<li>
+							<a href="<?php echo home_url()."/inscription-tournoi"?>">S'inscrire à un tournoi</a>
+						</li>	
+						<li>
+							<a href="<?php echo home_url()."/creationbagelquiz"?>">Création Bagel Quiz</a>
+						</li>
+						<li>
+							<a href="<?php echo home_url()."/creation-de-tournoi"?>">Création de tournoi</a>
+						</li>
+						<li>
+							<a href="<?php echo home_url()."/liste-des-quiz"?>">Liste des quiz</a>
+						</li>
+						<li>
+							<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
+						</li>
+					</ul>
+			<?php } else { ?>
+				<div id="link" class="bgQuiz left">
+					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
+					<i class="drop fas fa-caret-right" data-id="bgQuiz"></i>
+					<ul class=" menuDown dropMenu" id="bgQuiz">
+						<li>
+							<a href="<?php echo home_url()."/inscription-tournoi"?>">S'inscrire à un tournoi</a>
+						</li>	
+					</ul>
+			<?php } ?>
+				</div>
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link" class="articles">
 					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
