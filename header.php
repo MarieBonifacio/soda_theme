@@ -104,7 +104,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 							<a href="<?php echo home_url()."/creation-de-tournoi"?>">Création de tournoi</a>
 						</li>
 						<li>
-							<a href="<?php echo home_url()."/liste-des-quiz"?>">Liste des quiz</a>
+							<a href="<?php echo home_url()."/liste-des-bagel-quiz"?>">Liste des bagel quiz</a>
 						</li>
 						<li>
 							<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
