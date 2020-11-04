@@ -109,6 +109,9 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 						<li>
 							<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
 						</li>
+						<li>
+							<a href="<?php echo home_url()."/classement des bagel quiz"?>">Classements</a>
+						</li>
 					</ul>
 			<?php } else { ?>
 				<div id="link" class="bgQuiz left">
