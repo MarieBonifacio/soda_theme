@@ -110,7 +110,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 							<a href="<?php echo home_url()."/liste-des-tournois"?>">Liste des tournois</a>
 						</li>
 						<li>
-							<a href="<?php echo home_url()."/classement des bagel quiz"?>">Classements</a>
+							<a href="<?php echo home_url()."/classement-bagel-quiz"?>">Classements</a>
 						</li>
 					</ul>
 			<?php } else { ?>
