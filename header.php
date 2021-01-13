@@ -113,6 +113,7 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 							<a href="<?php echo home_url()."/classement-bagel-quiz"?>">Classements</a>
 						</li>
 					</ul>
+				</div>
 			<?php } else { ?>
 				<div id="link" class="bgQuiz left">
 					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
@@ -122,8 +123,8 @@ if(!checkAuthorized($_SESSION['needAdmin'], $_SESSION['needLog'])){
 							<a href="<?php echo home_url()."/inscription-tournoi"?>">S'inscrire à un tournoi</a>
 						</li>	
 					</ul>
-			<?php } ?>
 				</div>
+			<?php } ?>
 			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 				<div id="link" class="articles">
 					<a id="a" href="<?php echo home_url()."/articles" ?>"><i class="far fa-newspaper"></i><p id="p">Articles</p></a>
