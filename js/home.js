@@ -1,17 +1,17 @@
 window.addEventListener('load', function () {
   var admin = myScript.admin;
   var editor = myScript.editor;
-  const bp = document.querySelector(".bpas-post-form-wrapper");
+  // const bp = document.querySelector(".bpas-post-form-wrapper");
 
-  console.log(admin, editor);
-  if(admin || editor)
-  {
-    bp.style.display = "block";
-  }
-  else
-  {
-    bp.style.display = "none";
-  }
+  // console.log(admin, editor);
+  // if(admin || editor)
+  // {
+  //   bp.style.display = "block";
+  // }
+  // else
+  // {
+  //   bp.style.display = "none";
+  // }
   // var myTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   // const gen = document.querySelector(".gen");
